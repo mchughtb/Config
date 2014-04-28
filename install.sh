@@ -71,6 +71,7 @@ function main() {
 
 	IFS='|'
 	grep -v '^#' "$config" | while read dest src ; do
+		[[ ! -z "$src" && ! -z "$dest" ]] || continue
 		log "========================"
 		srcfile="$srcdir/$src"
 		destfile="$destdir/$dest"
@@ -82,7 +83,7 @@ function main() {
 				continue
 			fi
 			[[ -w "$destfile" ]] || { echo "ERROR: target not writable:$destfile" ; continue ; }
-			log "backing up:$destfile" ; remove "$destfile" ;
+			remove "$destfile" 
 		else
 			dir="${destfile%/*}"
 			[[ -d "$dir" ]] || { log "creating dir:$dir" ; mkdir -p $dir ; }

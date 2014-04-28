@@ -1,0 +1,13 @@
+[user]
+	name = Robert Byrne
+	email = robert@byrnemail.org
+[core]
+	excludesfile = /Users/rob/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Volumes/SourceTree/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
