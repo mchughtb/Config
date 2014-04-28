@@ -77,12 +77,11 @@ function main() {
 		destfile="$destdir/$dest"
 		log "$destfile -> $srcfile"
 		[[ -r "$srcfile" ]] || { echo "ERROR: unreadable source:$srcfile" ; continue ; }
-		if [[ -e "$destfile" ]] ; then
+		if [[ -e "$destfile" || -L "$destfile" ]] ; then
 			if [[ "$srcfile" -ef "$destfile" ]] ; then
 				log "SKIP: up to date:$destfile"
 				continue
 			fi
-			[[ -w "$destfile" ]] || { echo "ERROR: target not writable:$destfile" ; continue ; }
 			remove "$destfile" 
 		else
 			dir="${destfile%/*}"
