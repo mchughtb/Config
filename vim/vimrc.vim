@@ -23,7 +23,7 @@ set scrolloff=3                                              " show context abov
 set shiftwidth=4                                             " normal mode indentation commands use 4 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
-set tabstop=4                                                " actual tabs occupy 8 characters
+set tabstop=4                                                " actual tabs occupy 4 characters
 set noexpandtab                                             " only expand in filetype specific files
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion

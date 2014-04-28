@@ -1,8 +1,18 @@
 #!/bin/bash
 set -u -e
 
+# reads a file of links to set up relative to a source and dest folder
+# file is a pipe seperated list of destination|source
+#	 .bashrc|my_bashrc.bash
+# the filenames are relative to the source and dest folders  (to make it possible 
+# to test it without trashing the real files). If unspecified the dest is $HOME
+# and the source is the same folder that the script is in
+# existing files will get backed up to $dest/backups
+
+# default the source to be the same as the script
 thisdir=$( cd `dirname $0` && pwd )
 srcdir="$thisdir"
+# default dest to be home
 destdir="$HOME"
 config="config.cfg"
 dryRun=

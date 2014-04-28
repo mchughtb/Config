@@ -22,6 +22,7 @@ fi
 
 export MAGICK_HOME="/usr/local"
 
+# changes the title of the terminal
 function tabname {
   printf "\e]1;$1\a"
 }

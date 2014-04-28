@@ -61,7 +61,7 @@ export PROMPT_COMMAND='workd=${PWD/"$HOME"/"~"};echo -ne "\033]0;${HOSTNAME%%.*}
 alias ls='ls -xF'
 export VISUAL=/usr/bin/vi
 
-# stuff that should go in inputrc perhaps?
+## stuff that should go in inputrc perhaps?
 set meta-flag on
 set convert-meta off
 set output-meta on
@@ -72,6 +72,7 @@ if [[ -f $HOME/.aws ]] ; then
 	. "$HOME/.aws"
 fi
 
+## local customizations
 if [[ -f $HOME/.bashrc.local ]] ; then
 	. "$HOME/.bashrc.local"
 fi
