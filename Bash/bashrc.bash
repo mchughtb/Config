@@ -82,7 +82,7 @@ if [[ -n "$TMUX" ]] ; then
 	# make mvim use a vim server with the session name from tmux
 	mvim=$( which mvim )
 	session=$( tmux display-message -p '#S' )
-	alias mvim="$mvim --servername $session --remote-tab"
+	alias mvim="$mvim --servername $session --remote-tab-silent"
 fi
 
 
