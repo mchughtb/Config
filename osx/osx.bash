@@ -45,13 +45,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ## defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 ## 
 ## # Expand save panel by default
-## defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 ## 
 ## # Expand print panel by default
-## defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 ## 
 ## # Save to disk (not to iCloud) by default
-## defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 ## 
 ## # Automatically quit printer app once the print jobs complete
 ## defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -114,7 +114,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ## defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 ## 
 ## # Disable “natural” (Lion-style) scrolling
-## defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 ## 
 ## # Increase sound quality for Bluetooth headphones/headsets
 ## defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -553,13 +553,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ## # Kill affected applications                                                  #
 ## ###############################################################################
 ## 
-## #for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-## #	"Mail" "Safari" "SizeUp" "SystemUIServer" "Terminal" "Transmission" \
-## #	"Twitter" "iCal" "iTunes"; do
-## #	killall "$app" > /dev/null 2>&1
-## #done
-## for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-## 	"Mail" "Safari" "SizeUp" "SystemUIServer" "Terminal" "iCal" "iTunes"; do
-## 	killall "$app" > /dev/null 2>&1
-## done
-## echo "Done. Note that some of these changes require a logout/restart to take effect."
+for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
+	"Mail" "Safari" "SizeUp" "SystemUIServer" "Terminal" "iCal" "iTunes"; do
+	killall "$app" > /dev/null 2>&1
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
