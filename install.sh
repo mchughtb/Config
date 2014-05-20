@@ -14,7 +14,7 @@ thisdir=$( cd `dirname $0` && pwd )
 srcdir="$thisdir"
 # default dest to be home
 destdir="$HOME"
-config="config.cfg"
+config="install.cfg"
 dryRun=
 backupname=$(date +"backups/%Y%m%d-%H%M%S")
 verbose=
