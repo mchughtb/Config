@@ -77,5 +77,12 @@ if [[ -f $HOME/.bashrc.local ]] ; then
 	. "$HOME/.bashrc.local"
 fi
 
+# TMUX specific settings
+if [[ -n "$TMUX" ]] ; then
+	# make mvim use a vim server with the session name from tmux
+	mvim=$( which mvim )
+	session=$( tmux display-message -p '#S' )
+	alias mvim="$mvim --servername $session --remote-tab"
+fi
 
 
