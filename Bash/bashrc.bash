@@ -56,7 +56,7 @@ else
 fi
 
 ### make the current hostname appear in the tabbed window
-export PROMPT_COMMAND='workd=${PWD/"$HOME"/"~"};echo -ne "\033]0;${HOSTNAME%%.*}:${workd##*/}\007" '
+PROMPT_COMMAND='workd=${PWD/"$HOME"/"~"};echo -ne "\033]0;${HOSTNAME%%.*}:${workd##*/}\007" '
 
 alias ls='ls -xF'
 export VISUAL=/usr/bin/vi
