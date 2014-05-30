@@ -93,8 +93,8 @@ function main() {
 		[[ ! -z "$src" && ! -z "$dest" ]] || continue 
 		[[ "$host" == $hostpattern ]] || { log "SKIP: $src for host $hostpattern" ; continue; }
 		[[ "$os" == $ospattern ]] || { log "SKIP: $src for os $ospattern" ; continue; }
-		srcfile="$srcdir/$src"
-		destfile="$destdir/$dest"
+		local srcfile="$srcdir/$src"
+		local destfile="$destdir/$dest"
 		[[ -r "$srcfile" ]] || { echo "ERROR: unreadable source:$srcfile" ; continue ; }
 		if [[ -e "$destfile" || -L "$destfile" ]] ; then
 			if [[ "$srcfile" -ef "$destfile" ]] ; then
@@ -103,7 +103,7 @@ function main() {
 			fi
 			remove "$destfile" 
 		else
-			dir="${destfile%/*}"
+			local dir="${destfile%/*}"
 			[[ -d "$dir" ]] || { log "CREATE: $dir" ; mkdir -p $dir ; }
 		fi
 		linker "$srcfile" "$destfile"
