@@ -1,9 +1,18 @@
-# 
-# this should work on cygwin and darwin. If the first call fails the second succeeds
 #
+# .bashrc run by bash for non-login shells
+# 
 
+# this should work on cygwin and darwin. If the first call fails the second succeeds
+# set this on non-interactive shells as well as unison needs this
+# by convention dns will give    name-en0  or name-wifi so strip the hyphen onwards
 host=$(hostname -s 2> /dev/null || hostname)
+export UNISONLOCALHOSTNAME=${host%%-*}
 
+# Everything else is only for interactive shells
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 #
 # Set up bash histroy to work across sessions
@@ -26,31 +35,13 @@ _archive_history ()
 
 trap _archive_history EXIT
 
-## add local scripts  na dhomebrew binaries to the path ahead of the osx ones
-
-platform=$(uname -o 2> /dev/null || uname -s)
-PATH="$HOME/scripts/$platform:$HOME/scripts:/usr/local/bin:$PATH"
-
-### Set up color prompt
-
-# txtblk='\e[0;30m' # Black - Regular
-# txtred='\e[0;31m' # Red
-# txtgrn='\e[0;32m' # Green
-# txtylw='\e[0;33m' # Yellow
-# txtblu='\e[0;34m' # Blue
-# txtpur='\e[0;35m' # Purple
-# txtcyn='\e[0;36m' # Cyan
-# txtwht='\e[0;37m' # White
-
+# colour prompts
 if [[ ( "x$host" == "xlaura" ) || ( "x$host" == "xlaura-en0" ) ]] ; then
 	export PS1='\[\e[1;32m\]\u@\h: \w/ >\[\e[0m\] '
-	export UNISONLOCALHOSTNAME=laura
 elif [[ ( "x$host" == "xcookie" ) || ( "x$host" == "xcookie-wired" ) ]] ; then
 	export PS1='\[\e[1;36m\]\u@\h: \w/ >\[\e[0m\] '
-	export UNISONLOCALHOSTNAME=cookie
 elif [[ ( "x$host" == "xfliss" ) || ( "x$host" == "xfliss-air" ) ]] ; then
 	export PS1='\[\e[1;33m\]\u@\h: \w/ >\[\e[0m\] '
-	export UNISONLOCALHOSTNAME=fliss
 else
 	export PS1='\u@\h: \w/ >\[\e[0m\] '
 fi
@@ -59,18 +50,13 @@ fi
 PROMPT_COMMAND='workd=${PWD/"$HOME"/"~"};echo -ne "\033]0;${HOSTNAME%%.*}:${workd##*/}\007" '
 
 alias ls='ls -xF'
-export VISUAL=/usr/bin/vi
+export VISUAL=/usr/bin/vim
 
 ## stuff that should go in inputrc perhaps?
 set meta-flag on
 set convert-meta off
 set output-meta on
 
-
-##  Amazon web services credentials are seperate and not checked-in
-if [[ -f $HOME/.aws ]] ; then
-	. "$HOME/.aws"
-fi
 
 ## local customizations
 if [[ -f $HOME/.bashrc.local ]] ; then
@@ -83,6 +69,16 @@ if [[ -n "$TMUX" ]] ; then
 	mvim=$( which mvim )
 	session=$( tmux display-message -p '#S' )
 	alias mvim="$mvim --servername $session --remote-tab-silent"
+fi
+
+# changes the title of the terminal
+function tabname {
+  printf "\e]1;$1\a"
+}
+
+# bash completion
+if [ -f /usr/local/etc/bash_completion ]; then
+	source /usr/local/etc/bash_completion
 fi
 
 

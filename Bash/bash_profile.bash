@@ -2,34 +2,28 @@
 # ~/.bash_profile: executed by bash for login shells.
 #
 
-### source the system wide bashrc if it exists
 
-# cygwin
-if [ -f /etc/bash.bashrc ] ; then
+## add local scripts and dhomebrew binaries to the path ahead of the osx ones
+platform=$(uname -o 2> /dev/null || uname -s)
+PATH="$HOME/scripts/$platform:$HOME/scripts:/usr/local/bin:$PATH"
+
+
+## source the system wide bashrc if it exists
+if [ -s /etc/bash.bashrc ] ; then	# cygwin
   source /etc/bash.bashrc
 fi
-
-# OSX
-if [ -f /etc/bashrc ] ; then
+if [ -s /etc/bashrc ] ; then		# OSX
   source /etc/bashrc
 fi
 
-
-#### source the users bashrc if it exists
-if [ -f "${HOME}/.bashrc" ] ; then
+## source the users bashrc if it exists
+if [ -s "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
 
-export MAGICK_HOME="/usr/local"
-
-# changes the title of the terminal
-function tabname {
-  printf "\e]1;$1\a"
-}
-
-# bash completion
-if [ -f /usr/local/etc/bash_completion ]; then
-	source /usr/local/etc/bash_completion
+##  Amazon web services credentials are seperate and not checked-in
+if [[ -s "$HOME/.aws" ]] ; then
+	source "${HOME}/.aws"
 fi
 
 

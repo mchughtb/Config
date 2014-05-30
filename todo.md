@@ -5,5 +5,5 @@
 	[[ "Darwin" == D* ]] && echo yes   # note lack of quoting on wildcard
 
 * Use .profile for common variables (PATH) shared by sh and bash. see debian setup
-  for the order things get called
+  for the order things get called   @done
 	
