@@ -59,7 +59,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
+" let g:gitgutter_enabled = 0
+let g:gitgutter_diff_args = '-w'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
