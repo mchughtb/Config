@@ -18,7 +18,7 @@ config="install.cfg"
 dryRun=
 readonly backupname=$(date +"backups/%Y%m%d-%H%M%S")
 verbose=
-host=$( hostname )
+host=$( hostname -s )
 os=$( uname )
 
 function usage()
@@ -83,9 +83,9 @@ function main() {
 	log "host:        $host"
 	log "os:          $os"
 
-	[[ -r "$config" ]] || { echo "ERROR: cannot read config:$config" ; exit ; }
-	[[ -d "$srcdir" ]] || { echo "ERROR: source dir not a dir?: $srcdir" ; exit ; }
-	[[ -d "$destdir" ]] || { echo "ERROR: dest dir not a dir?: $destdir" ; exit ; }
+	[[ -r "$config" ]] || { echo "ERROR: cannot read config: $config" ; exit 6 ; }
+	[[ -d "$srcdir" ]] || { echo "ERROR: source dir not a dir?: $srcdir" ; exit 7 ; }
+	[[ -d "$destdir" ]] || { echo "ERROR: dest dir not a dir?: $destdir" ; exit 7 ; }
 
 	IFS='|'
 	grep -v '^#' "$config" | while read dest src hostpattern ospattern; do
