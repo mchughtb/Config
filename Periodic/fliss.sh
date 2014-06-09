@@ -10,7 +10,7 @@ date "+%Y-%m-%d %H.%M.%S Starting Periodic"
 
 flags="$@"
 
-jobRunner2.sh -n "tv-rssd" -t 23 $flags $HOME/scripts/tv-rss.sh -D
+jobRunner2.sh -n "tv-rssd" -t 17 $flags $HOME/scripts/tv-rss.sh -D
 jobRunner2.sh -n "tv-rss" -t 13 $flags $HOME/scripts/tv-rss.sh
 jobRunner2.sh -n "picasa-ucecrjf" -t 1442  $flags $HOME/scripts/photo-fetch.sh -d "$HOME/Pictures/ServerFiles/Originals/%Y/%Y-%m-01-KelliPicasa" -u ucecrjf -s picasa -L KelliPicasa
 jobRunner2.sh -n "flickr-les" -t 1444  $flags $HOME/scripts/photo-fetch.sh -s flickr -d "$HOME/Pictures/ServerFiles/Originals/%Y/%Y-%m-01-LesFlickr" -u "45232884@N02" -L LesFlickr
