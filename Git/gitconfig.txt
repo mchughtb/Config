@@ -11,3 +11,8 @@
 	trustExitCode = true
 [push]
 	default = simple
+[color "sh"]
+	branch = yellow
+[alias]
+	s = status
+
