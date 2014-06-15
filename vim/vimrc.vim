@@ -13,7 +13,7 @@ set backspace=2                                              " Fix broken backsp
 set backupcopy=yes                                           " see :help crontab
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
-set ignorecase                                               " case-insensitive search
+set hlsearch                                                 " highlight searchs
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
 set list                                                     " show trailing whitespace
@@ -30,15 +30,13 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set switchbuf=usetab,newtab									" have quickfix commands use tabs
 set ve=block												" virtual edit when block select  (^V)
-
-" Enable basic mouse behavior such as resizing buffers.
-set mouse=a
+set mouse=a													" Enable basic mouse behavior such as resizing buffers.
 
 " keyboard shortcuts
 let mapleader = ','
 nmap <leader>q :q<CR>
 nmap <leader>w :w<CR>
-nmap <leader>a :Ack 
+nmap <leader>a :Ack
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>r :CtrlPMRUFiles<CR>
 nmap <leader>d :NERDTreeToggle<CR>
@@ -59,14 +57,16 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 let g:NERDSpaceDelims=1
+let g:NERDTreeHijackNetrw=0
 " let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --column'
+  let g:ackprg = 'ag --nogroup --column --ignore *min.js'
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
+  let g:gitgutter_escape_grep = 1
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
