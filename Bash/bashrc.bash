@@ -68,12 +68,15 @@ if [[ -n "$TMUX" ]] ; then
 	# make mvim use a vim server with the session name from tmux
 	mvim=$( which mvim )
 	session=$( tmux display-message -p '#S' )
-	alias mvim="$mvim --servername $session --remote-tab-silent"
+	eval " function mvim()  { \
+		[[ -n \$@ ]] && reattach-to-user-namespace $mvim --servername $session --remote-tab-silent \$@ ; \
+		[[ -n \$@ ]] || ( $mvim --serverlist | grep -qi $session || reattach-to-user-namespace $mvim --servername $session );\
+	} "
 fi
 
 # changes the title of the terminal
 function tabname {
-  printf "\e]1;$1\a"
+printf "\e]1;$1\a"
 }
 
 # bash completion
