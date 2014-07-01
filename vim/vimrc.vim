@@ -1,4 +1,6 @@
+"
 " set up pathogen, https://github.com/tpope/vim-pathogen
+"
 filetype on
 filetype off
 call pathogen#infect()
@@ -32,25 +34,29 @@ set switchbuf=usetab,newtab									" have quickfix commands use tabs
 set ve=block												" virtual edit when block select  (^V)
 set mouse=a													" Enable basic mouse behavior such as resizing buffers.
 
+"
 " keyboard shortcuts
+"
 let mapleader = ','
-nmap <leader>q :q<CR>
-nmap <leader>w :w<CR>
-nmap <leader>a :Ack
+nmap <leader>a :Ack 
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>r :CtrlPMRUFiles<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
+nmap <leader>r :CtrlPMRUFiles<CR>
 nmap <leader>t :CtrlPCurWD<CR>
 nmap <leader>T :CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-map <leader>v :tabnew $HOME/.vimrc<CR>
+map <leader>v :tabnew $HOME/Documents/Config/vim/vimrc.vim<CR>
 vmap <leader>e :call ExtractVariable()<CR>
 
+"
 " plugin settings
+"
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
@@ -58,10 +64,12 @@ let g:ctrlp_prompt_mappings = {
   \ }
 let g:NERDSpaceDelims=1
 let g:NERDTreeHijackNetrw=0
-" let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
 
+"  AG setup
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+"
 if executable('ag')
   let g:ackprg = 'ag --nogroup --column --ignore *min.js'
   " Use Ag over Grep
@@ -71,19 +79,19 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" fdoc is yaml
-autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-" msbuild is xml
-autocmd BufRead,BufNewFile *.build set filetype=xml
-" plist is xml
-autocmd BufRead,BufNewFile *.plist set filetype=xml
-" md is markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+"
+" filetypes
+"
+autocmd BufRead,BufNewFile *.fdoc set filetype=yaml				" fdoc is yaml
+autocmd BufRead,BufNewFile *.build set filetype=xml				" msbuild is xml
+autocmd BufRead,BufNewFile *.plist set filetype=xml				" plist is xml
+autocmd BufRead,BufNewFile *.md set filetype=markdown			" md is markdown
+autocmd VimResized * :wincmd =									" automatically rebalance windows on vim resize
 
 
+"
 " gui settings
+"
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
     colorscheme solarized
@@ -157,3 +165,4 @@ endfunc
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
