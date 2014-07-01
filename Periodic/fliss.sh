@@ -19,5 +19,5 @@ jobRunner2.sh -n "flickr-dan" -t 1447  $flags $HOME/scripts/photo-fetch.sh -s fl
 jobRunner2.sh -n "small-photos" -t 61 $flags $HOME/scripts/photo-thumbnails.sh "$HOME/Pictures/Photos/Originals" Originals SmallPhotos
 jobRunner2.sh -n "sync-appletv" -t 15  $flags $HOME/scripts/sync-appletv.sh
 jobRunner2.sh -m debs -n "backup-fliss" -t 121  $flags $HOME/scripts/backup-fliss.sh
-#jobRunner2.sh -n "move-watched-shows" -t 1449 $flags $HOME/scripts/moveUnlinkedFiles.sh
+#jobRunner2.sh -n "move-watched-shows" -t 1449 $flags $HOME/scripts/tv-movewatched.sh
 date "+%Y-%m-%d %H.%M.%S Ending Periodic"
