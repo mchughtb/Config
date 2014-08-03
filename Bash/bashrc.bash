@@ -74,6 +74,10 @@ if [[ -n "$TMUX" ]] ; then
 	} "
 fi
 
+if [[ -f "$HOME/.bashrc.d/tat.bash" ]] ; then
+	. "$HOME/.bashrc.d/tat.bash"
+fi
+
 # changes the title of the terminal
 function tabname {
 printf "\e]1;$1\a"
