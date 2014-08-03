@@ -8,6 +8,15 @@
 host=$(hostname -s 2> /dev/null || hostname)
 export UNISONLOCALHOSTNAME=${host%%-*}
 
+if [[ -f "$HOME/.bashrc.d/tat.bash" ]] ; then
+	. "$HOME/.bashrc.d/tat.bash"
+fi
+
+# changes the title of the terminal
+function tabname {
+printf "\e]1;$1\a"
+}
+
 # Everything else is only for interactive shells
 case $- in
     *i*) ;;
@@ -74,14 +83,6 @@ if [[ -n "$TMUX" ]] ; then
 	} "
 fi
 
-if [[ -f "$HOME/.bashrc.d/tat.bash" ]] ; then
-	. "$HOME/.bashrc.d/tat.bash"
-fi
-
-# changes the title of the terminal
-function tabname {
-printf "\e]1;$1\a"
-}
 
 # bash completion
 if [ -f /usr/local/etc/bash_completion ]; then

@@ -12,7 +12,12 @@ function tat() {
 		arg=$(pwd)
 	fi
 	local name=${arg##*/}
-	tmux new-session -A -s "$name"
+	if tmux has-session -t "$name" 2> /dev/null ; then
+		echo "Attaching to existing session: $name"
+		tmux attach-session -t "$name"
+	else
+		tmux new-session -s "$name"
+	fi
 }
 
 script=${0##*/}
