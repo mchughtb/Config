@@ -32,7 +32,6 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set switchbuf=usetab,newtab									" have quickfix commands use tabs
 set ve=block												" virtual edit when block select  (^V)
-set mouse=a													" Enable basic mouse behavior such as resizing buffers.
 
 "
 " keyboard shortcuts
@@ -103,14 +102,14 @@ endif
 "
 " show differene between file buffer and the saved file on disk
 "
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
+" function! s:DiffWithSaved()
+"   let filetype=&ft
+"   diffthis
+"   vnew | r # | normal! 1Gdd
+"   diffthis
+"   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+" endfunction
+" com! DiffSaved call s:DiffWithSaved()
 
 function! s:DiffSvnBase()
   let filetype=&ft
