@@ -30,8 +30,8 @@ set noexpandtab                                             " only expand in fil
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
-set switchbuf=usetab,newtab									" have quickfix commands use tabs
-set ve=block												" virtual edit when block select  (^V)
+set switchbuf=usetab,newtab                                 " have quickfix commands use tabs
+set ve=block                                                " virtual edit when block select  (^V)
 
 "
 " keyboard shortcuts
@@ -81,11 +81,11 @@ endif
 "
 " filetypes
 "
-autocmd BufRead,BufNewFile *.fdoc set filetype=yaml				" fdoc is yaml
-autocmd BufRead,BufNewFile *.build set filetype=xml				" msbuild is xml
-autocmd BufRead,BufNewFile *.plist set filetype=xml				" plist is xml
-autocmd BufRead,BufNewFile *.md set filetype=markdown			" md is markdown
-autocmd VimResized * :wincmd =									" automatically rebalance windows on vim resize
+autocmd BufRead,BufNewFile *.fdoc set filetype=yaml                " fdoc is yaml
+autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
+autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xml
+autocmd BufRead,BufNewFile *.md set filetype=markdown              " md is markdown
+autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
 
 
 "
