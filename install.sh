@@ -41,7 +41,7 @@ function usage()
 
 	       will link/copy source_dir/my_bashrc.bash to dest_dir/.bashrc if the hostname 
 	       begins with satur (saturday, saturn etc..) and uname is either Darwin or Linux. 
-	       Patterns are bash ERE but a single * will match any host/platform
+	       Patterns are passed to grep -E  an empty pattern will match any host/platform
 
 	END
 }
@@ -116,9 +116,9 @@ function main() {
 	IFS=':'
 	grep -v '^#' "$config" | while read dest src hostpattern ospattern; do
 		[[ $dryRun ]] || log "========================"
-		[[ ! -z "$src" && ! -z "$dest" ]] || continue 
-		[[ "$hostpattern" == "*" || "$host" =~ $hostpattern ]] || { log "SKIP: $src -> $dest no match for $host =~ $hostpattern"   ; continue; }
-		[[ "$ospattern" == "*"   || "$os" =~ $ospattern ]]     || { log "SKIP: $src -> $dest no match for $os =~ $ospattern"       ; continue; }
+		[[ ! -z "$src" && ! -z "$dest" ]] || continue
+		echo "$host" | grep -qE "$hostpattern" || { log "SKIP: $src -> $dest no match for $host =~ $hostpattern"   ; continue; }
+		echo "$os" | grep -qE "$ospattern"     || { log "SKIP: $src -> $dest no match for $os =~ $ospattern"       ; continue; }
 		local srcfile="$srcdir/$src"
 		local destfile="$destdir/$dest"
 		[[ -r "$srcfile" ]] || { echo "ERROR: $src -> $dest sourcefile $srcfile is not readable" ; continue ; }
