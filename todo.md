@@ -7,5 +7,6 @@
 * Use .profile for common variables (PATH) shared by sh and bash. see debian setup
   for the order things get called   @done
 * option to copy the files rather than link them so it works from a network share under windows  @done
+* Use submodules for the vim stuff
 
 
