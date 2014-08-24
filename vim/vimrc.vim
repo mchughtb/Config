@@ -87,7 +87,7 @@ autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xm
 autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
 augroup markdown
     au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead README,*.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
 "
