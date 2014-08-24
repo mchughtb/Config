@@ -26,4 +26,6 @@ if [[ -s "$HOME/.aws" ]] ; then
 	source "${HOME}/.aws"
 fi
 
+## add RVM as a function if it's present
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
