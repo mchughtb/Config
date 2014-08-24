@@ -16,6 +16,7 @@ srcdir="$thisdir"
 destdir="$HOME"
 config="install.cfg"
 dryRun=
+copyMode=
 readonly backupname=$(date +"backups/%Y%m%d-%H%M%S")
 verbose=
 host=$( hostname -s )
@@ -28,6 +29,7 @@ function usage()
 	$0 -nv -s source_dir -d dest_dir -m hostname -o os configfile
 	     -n  dry run
 	     -v  verbose
+		 -c copy files instead of linking
 	     -m  override machine hostname (defaults to $host)
 	     -o  override operating system (defaults to $os)
 	     source_dir defaults to $thisdir
@@ -37,11 +39,12 @@ function usage()
 
 function process_args()
 {
-	while getopts ":s:d:o:m:nvh" flag ; do
+	while getopts ":s:d:o:m:nvhc" flag ; do
 		case $flag in
 		s) srcdir=${OPTARG%/} ;;
 		d) destdir=${OPTARG%/} ;;
 		n) dryRun=1 ;;
+		c) copyMode=1 ;;
 		v) verbose=1 ;;
 		o) os=${OPTARG} ;;
 		m) host=${OPTARG} ;;
@@ -58,8 +61,13 @@ esac
 
 function linker()
 {
-	echo LINK: "$@"
-	[[ $dryRun ]] || ln -s "$@"
+	if [[ $copyMode ]] ; then
+		echo COPY: "$@"
+		[[ $dryRun ]] || cp -Rn "$@"
+	else
+		echo LINK: "$@"
+		[[ $dryRun ]] || ln -s "$@"
+	fi
 }
 
 function remove()
@@ -98,7 +106,7 @@ function main() {
 		[[ -r "$srcfile" ]] || { echo "ERROR: unreadable source:$srcfile" ; continue ; }
 		if [[ -e "$destfile" || -L "$destfile" ]] ; then
 			if [[ "$srcfile" -ef "$destfile" ]] ; then
-				log "SKIP: up to date:$destfile"
+				log "SKIP: Already link to sourcefile :$destfile"
 				continue
 			fi
 			remove "$destfile" 
