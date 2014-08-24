@@ -84,9 +84,11 @@ endif
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml                " fdoc is yaml
 autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
 autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xml
-autocmd BufRead,BufNewFile *.md set filetype=markdown              " md is markdown
 autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
-
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 "
 " gui settings
