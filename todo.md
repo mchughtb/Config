@@ -9,4 +9,6 @@
 * option to copy the files rather than link them so it works from a network share under windows  @done
 * Use submodules for the vim stuff
 
+* Inverse matching of the arch/host regexp so can have one rull for X and another for not X
+* Option to copy directories but link files  (for windows)
 
