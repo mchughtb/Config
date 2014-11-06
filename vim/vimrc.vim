@@ -26,7 +26,7 @@ set shiftwidth=4                                             " normal mode inden
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set tabstop=4                                                " actual tabs occupy 4 characters
-set noexpandtab                                              " only expand in filetype specific files
+set expandtab                                                " expand tabs by default
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
@@ -84,6 +84,8 @@ endif
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml                " fdoc is yaml
 autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
 autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xml
+autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
+autocmd BufRead,BufNewFile *.targets set filetype=xml              " msbuild is xml
 autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
 augroup markdown
     au!
@@ -104,14 +106,14 @@ endif
 "
 " show differene between file buffer and the saved file on disk
 "
-" function! s:DiffWithSaved()
-"   let filetype=&ft
-"   diffthis
-"   vnew | r # | normal! 1Gdd
-"   diffthis
-"   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-" endfunction
-" com! DiffSaved call s:DiffWithSaved()
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 function! s:DiffSvnBase()
   let filetype=&ft
