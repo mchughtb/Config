@@ -6,4 +6,10 @@ nmap <A-{> :tabprev<CR>
 nmap <A-}> :tabnext<CR>
 nmap <A-n> :tabnew<CR>
 
+" put wd in the window title
+set titlestring=%{fnamemodify(getcwd(),':~')}
 
+" Source local cutomizations
+if filereadable(expand("~/.gvimrc.local"))
+  source ~/.gvimrc.local
+endif
