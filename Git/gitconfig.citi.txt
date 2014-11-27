@@ -2,6 +2,11 @@
 	name = rb90318
 	email = robert.byrne@citi.com
 [http]
-	proxy = http://webproxy.ssmb.com:8080
+	sslVerify = false
 [https]
+	sslVerify = false
 	proxy = https://webproxy.ssmb.com:8080
+[push]
+	default = simple
+[core]
+	autocrlf = true
