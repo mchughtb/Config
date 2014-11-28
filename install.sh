@@ -70,13 +70,39 @@ function process_args()
 
 function linker()
 {
-	if [[ $copyMode == copy ]] ; then
-		echo COPY: "$@"
-		[[ $dryRun ]] || cp -R "$@"
-	else
-		echo LINK: "$@"
-		[[ $dryRun ]] || ln -s "$@"
-	fi
+    local src="$1"
+    local dest="$2"
+    if [[ $copyMode == copy ]] ; then
+        echo COPY: "$@"
+        [[ $dryRun ]] || cp -R "$src" "$dest"
+    elif echo "$os" | grep -qE "MINGW" ; then
+        mingw_linker "$@"
+    else
+        linker "$@"
+    fi
+}
+
+function posix_linker()
+{
+    local src="$1"
+    local dest="$2"
+    echo LINK: "$@"
+    [[ $dryRun ]] || ln -s "$src" "$dest"
+}
+
+function mingw_linker()
+{
+    local src="$1"
+    local dest="$2"
+    local wdest=$( cmd.exe //c echo "$dest" | sed 's,/,\\,g' )
+    local wsrc=$( cmd.exe //c echo "$src" | sed 's,/,\\,g' )
+    if [[ -d "$src" ]] ; then
+        echo JUNC: "$wsrc" "$wdest"
+        [[ $dryRun ]] || cmd.exe //c mklink //j "$wdest" "$wsrc"
+    else
+        echo HRDL: "$wsrc" "$wdest"
+        [[ $dryRun ]] || cmd.exe //c mklink //h "$wdest" "$wsrc"
+    fi
 }
 
 function remove()
