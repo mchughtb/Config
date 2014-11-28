@@ -78,7 +78,7 @@ function linker()
     elif echo "$os" | grep -qE "MINGW" ; then
         mingw_linker "$@"
     else
-        linker "$@"
+        posix_linker "$@"
     fi
 }
 
