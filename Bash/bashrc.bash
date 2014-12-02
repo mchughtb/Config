@@ -8,13 +8,17 @@
 host=$(hostname -s 2> /dev/null || hostname)
 export UNISONLOCALHOSTNAME=${host%%-*}
 
-if [[ -f "$HOME/.bashrc.d/tat.bash" ]] ; then
-	. "$HOME/.bashrc.d/tat.bash"
+## bring in sub bash files
+scriptdir="$HOME/.bashrc.d"
+if [[ -d $HOME/.bashr.d ]] ; then
+    for file in $HOME/.bashrc.d/*.bash ; do
+        source "$file"
+    done
 fi
 
 # changes the title of the terminal
 function tabname {
-printf "\e]1;$1\a"
+    printf "\e]1;$1\a"
 }
 
 # Everything else is only for interactive shells
@@ -72,9 +76,6 @@ if [[ -f $HOME/.bashrc.local ]] ; then
 	. "$HOME/.bashrc.local"
 fi
 
-if [[ -f "$HOME/.bashrc.d/tmux-mvim.bash" ]] ; then
-	. "$HOME/.bashrc.d/tmux-mvim.bash"
-fi
 
 # bash completion
 if [ -f /usr/local/etc/bash_completion ]; then
