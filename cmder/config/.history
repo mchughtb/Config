@@ -1,0 +1,79 @@
+cd Source\Repos\RTMD.Refactor\
+ls
+build clean
+build
+echo %TEMP%
+cd \
+di1e
+dir
+cd mongodb1\
+dir
+cd log
+dir
+less mongo.log
+cd ..
+dkir
+dir
+cat mongod.cfg 
+exit
+cd Source\Repos\
+ls
+cd RTMD.Refactor\
+ls
+cd msbuild\
+ls
+less app.targets 
+build machine
+dir
+cd ..
+build machine
+build localstart
+build CI
+build ST
+build clean
+build localstop
+build clean
+build go
+taskill /?
+taskkill /?
+build go
+start .
+build stop
+build localstop
+build clean
+build CI
+build ST
+build nunitsystemtest
+build ST
+cd ..
+exit
+cd Source\Repos\RTMD\
+ls
+build
+build clean
+build machine
+build setup
+build rc
+build nunitsystemtest
+build setup
+build ST
+build SystemTest
+build
+start .
+build -r rc
+mkdlink /?
+mklink /?
+cd
+cd ..\..\
+cd ..
+dir
+mklink /j vimfiles Source\Repos\Config\vim
+mklink
+cd tmp
+ls
+mklink two.ps1 one.ps1 
+mklink /h two.ps1 one.ps1 
+ls
+cat two.ps1 
+ls
+cd ..
