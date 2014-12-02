@@ -10,8 +10,8 @@ export UNISONLOCALHOSTNAME=${host%%-*}
 
 ## bring in sub bash files
 scriptdir="$HOME/.bashrc.d"
-if [[ -d $HOME/.bashr.d ]] ; then
-    for file in $HOME/.bashrc.d/*.bash ; do
+if [[ -d "$scriptdir" ]] ; then
+    for file in "$scriptdir"/*.bash ; do
         source "$file"
     done
 fi
