@@ -100,7 +100,7 @@ function mingw_linker()
         echo JUNC: "$wsrc" "$wdest"
         [[ $dryRun ]] || cmd.exe //c mklink //j "$wdest" "$wsrc"
     else
-        echo HRDL: "$wsrc" "$wdest"
+        echo HRDL: "$src" "$dest"
         [[ $dryRun ]] || cmd.exe //c mklink //h "$wdest" "$wsrc"
     fi
 }
