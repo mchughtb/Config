@@ -2,7 +2,7 @@
 set -u -e
 
 # reads a file of links to set up relative to a source and dest folder
-# the filenames are relative to the source and dest folders  (to make it possible 
+# the filenames are relative to the source and dest folders  (to make it possible
 # to test it without trashing the real files). If unspecified the dest is $HOME
 # and the source is the same folder that the script is in
 # existing files will get backed up to $dest/backups
@@ -39,8 +39,8 @@ function usage()
 
 	         .bashrc:my_bashrc.bash:satur.*:Linux|Darwin
 
-	       will link/copy source_dir/my_bashrc.bash to dest_dir/.bashrc if the hostname 
-	       begins with satur (saturday, saturn etc..) and uname is either Darwin or Linux. 
+	       will link/copy source_dir/my_bashrc.bash to dest_dir/.bashrc if the hostname
+	       begins with satur (saturday, saturn etc..) and uname is either Darwin or Linux.
 	       Patterns are passed to grep -E  an empty pattern will match any host/platform
 
 	END
@@ -87,7 +87,7 @@ function posix_linker()
     local src="$1"
     local dest="$2"
     echo LINK: "$@"
-    [[ $dryRun ]] || ln -s "$src" "$dest"
+    [[ $dryRun ]] || { remove "$dest" && ln -s "$src" "$dest" ; }
 }
 
 function mingw_linker()
@@ -98,10 +98,10 @@ function mingw_linker()
     local wsrc=$( cmd.exe //c echo "$src" | sed 's,/,\\,g' )
     if [[ -d "$src" ]] ; then
         echo JUNC: "$wsrc" "$wdest"
-        [[ $dryRun ]] || cmd.exe //c mklink //j "$wdest" "$wsrc"
+        [[ $dryRun ]] || { remove "$dest" &&  cmd.exe //c mklink //j "$wdest" "$wsrc" ; }
     else
         echo HRDL: "$src" "$dest"
-        [[ $dryRun ]] || cmd.exe //c mklink //h "$wdest" "$wsrc"
+        [[ $dryRun ]] || { remove "$dest" &&  cmd.exe //c mklink //h "$wdest" "$wsrc" ; }
     fi
 }
 
@@ -153,11 +153,11 @@ function main() {
 				log "SKIP: $src -> $dest dest $destfile is already linked to sourcefile: $srcfile"
 				continue
 			fi
-			remove "$destfile" 
 		else
 			local dir="${destfile%/*}"
 			createdir "$dir"
 		fi
+        [[ $verbose ]] && { echo diff "$srcfile" "$destfile" ; diff "$destfile" "$srcfile" || true ; }
 		linker "$srcfile" "$destfile"
 	done
 }
