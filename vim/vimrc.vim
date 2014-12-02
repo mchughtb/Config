@@ -37,7 +37,6 @@ set ve=block                                                " virtual edit when 
 " keyboard shortcuts
 "
 let mapleader = ','
-nmap <leader>a :Ack 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
@@ -50,7 +49,7 @@ nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-map <leader>v :tabnew $HOME/Documents/Config/vim/vimrc.vim<CR>
+map <leader>v :tabnew $HOME/.vimrc<CR>
 vmap <leader>e :call ExtractVariable()<CR>
 
 "
@@ -76,7 +75,16 @@ if executable('ag')
   let g:gitgutter_escape_grep = 1
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    nmap <leader>a :Ack 
+else   " no ag so map it to a vimgrep  (slow)
+    nmap <leader>a :RvGrep 
 endif
+
+" do something similar to ack when ack is not installed on windows
+function! s:RVimGrep(text)
+    exe 'lvimgrep /' . a:text. "/g ./**/*.*"
+endfunction
+com! -nargs=1 RvGrep call s:RVimGrep(<f-args>)
 
 "
 " filetypes
