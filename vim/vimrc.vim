@@ -12,7 +12,7 @@ syntax enable                                                " enable syntax hig
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
-set backupcopy=yes                                           " see :help crontab
+set backupcopy=auto                                          " dont break links
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set hlsearch                                                 " highlight searchs
