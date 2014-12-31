@@ -16,6 +16,15 @@ function inst_base() {
     echo "================ END         $title ==============="
 }
 
+function inst_brew() {
+    local title="$1"
+    local pkg="$1"
+    local cmd="brew install $1"
+    local check="brew ls $1"
+    inst_base "$title" "$check" "$cmd"
+}
+
+
 inst_base "xcode" "xcode-select -p" "xcode-select --install"
 inst_base "homebrew" "which -s brew" "ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'" "brew update"
 
