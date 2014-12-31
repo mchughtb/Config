@@ -107,8 +107,13 @@ function mingw_linker()
 
 function remove()
 {
-	echo "BACKUP: $@"
-	[[ $dryRun ]] || { mkdir -p "$destdir/$backupname" ; mv -f "$@" "$destdir/$backupname/" ; }
+    if [[ -L "$@" ]] ; then
+        log "REMOVE LINK: $@"
+        [[ $dryrun ]] || rm "$@"
+    elif [[ -e "$@" ]] ; then
+        log "BACKUP: $@"
+        [[ $dryRun ]] || { mkdir -p "$destdir/$backupname" ; mv -f "$@" "$destdir/$backupname/" ; }
+    fi
 }
 
 function log()
