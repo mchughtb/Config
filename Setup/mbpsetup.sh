@@ -11,7 +11,6 @@ function once() {
     if $check > /dev/null ; then
         echo "$title: already installed"
     else
-        echo "================ INSTALL     $title ==============="
         echo  $cmd
         if [[ -z "$post" ]] ; then
             echo $post

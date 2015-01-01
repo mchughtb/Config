@@ -1,0 +1,2 @@
+inst_brew imagemagick
+inst_brew exiftool

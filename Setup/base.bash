@@ -13,3 +13,5 @@ for cask in macvim google-chrome alfred flux spectacle unison nvalt ; do
     inst_cask "$cask"
 done
 
+# Show the ~/Library folder
+chflags nohidden ~/Library
