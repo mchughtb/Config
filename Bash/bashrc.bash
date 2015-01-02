@@ -51,7 +51,7 @@ trap _archive_history EXIT
 # colour prompts
 if [[ ( "x$host" == "xlaura" ) || ( "x$host" == "xlaura-en0" ) ]] ; then
 	export PS1='\[\e[1;32m\]\u@\h: \w/ >\[\e[0m\] '
-elif [[ ( "x$host" == "xcookie" ) || ( "x$host" == "xcookie-wired" ) ]] ; then
+elif [[ ( "x$host" == "xkat" ) || ( "x$host" == "xkat-wired" ) ]] ; then
 	export PS1='\[\e[1;36m\]\u@\h: \w/ >\[\e[0m\] '
 elif [[ ( "x$host" == "xfliss" ) || ( "x$host" == "xfliss-air" ) ]] ; then
 	export PS1='\[\e[1;33m\]\u@\h: \w/ >\[\e[0m\] '
