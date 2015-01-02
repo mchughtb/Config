@@ -9,7 +9,7 @@ inst_cask quicklook-json
 inst_cask qlprettypatch
 inst_cask quicklook-csv
 inst_cask suspicious-package
-inst_cask webp-quicklook
+inst_cask webpquicklook
 
 defaults write com.apple.finder QLEnableTextSelection -bool true
 

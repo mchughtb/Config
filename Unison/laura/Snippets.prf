@@ -1,0 +1,4 @@
+# Unison preferences file
+root = /Users/rob/ServerFiles/Photos/Snippits
+root = ssh://ubuntu@ec2/Snippits
+

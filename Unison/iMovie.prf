@@ -1,0 +1,8 @@
+# Unison preferences file
+root = /Users/rob/Movies/iMovie Library.imovielibrary
+root = ssh://rob@fliss/Movies/iMovie Library.imovielibrary
+times = true
+log =  true
+maxthreads = 10
+ignore = Name {.DS_Store,iPod Photo Cache}
+ignore = Name {__Temp}

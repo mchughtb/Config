@@ -11,9 +11,9 @@ function once() {
     if $check > /dev/null ; then
         echo "$title: already installed"
     else
-        echo  $cmd
+        $cmd
         if [[ -z "$post" ]] ; then
-            echo $post
+            $post
         fi
     fi
     echo "================ END         $title ==============="
@@ -47,7 +47,7 @@ function inst_gem() {
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 once "xcode" "xcode-select -p" "xcode-select --install"
-once "homebrew" "which -s brew" "ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'" "brew update"
+once "homebrew" "which -s brew" "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\" " "brew update"
 inst_brew "caskroom/cask/brew-cask" "brew cask update"
 
 for file in $@ ; do

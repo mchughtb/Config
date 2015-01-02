@@ -1,0 +1,6 @@
+root = /Users/rob/ServerFiles/MovieQueue
+root = ssh://rob@home/Movies/Queued
+ignore = Name {.DS_Store,Cache,.svn,Thumbs.db,*.tmp,*.tmp-bad}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+

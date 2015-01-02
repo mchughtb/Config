@@ -1,0 +1,12 @@
+# Unison preferences file
+root = /Users/rob/ServerFiles/Photos
+root = ssh://rob@fliss/Pictures/Photos
+times = true
+log =  true
+maxthreads = 10
+ignore = Name {.DS_Store,iPod Photo Cache}
+ignore = Name {Thumbs.db}
+ignore = Name {*.info}
+ignore = Name {,.}*{.ithmb}
+ignore = Path {Raw/2011,Raw/2012}
+

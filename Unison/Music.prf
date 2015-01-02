@@ -1,0 +1,7 @@
+# Unison preferences file
+root = /Users/rob/ServerFiles/Music
+root = ssh://rob@fliss/ServerFiles/Music
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {Thumbs.db}
+ignore = Name {.DS_Store}
+

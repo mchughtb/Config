@@ -18,7 +18,6 @@ inst_brew multimarkdown
 inst_cask dash
 inst_cask dashlane
 inst_cask cord
-inst_cask launchrocket
 inst_cask vlc
 inst_cask virtualbox
 inst_cask transmission

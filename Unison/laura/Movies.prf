@@ -1,0 +1,15 @@
+# Unison preferences file
+root = /Users/rob/Movies
+root = ssh://rob@fliss/Movies
+times = true
+log =  true
+maxthreads = 10
+ignore = Name {.DS_Store,iPod Photo Cache}
+ignore = Name {Thumbs.db}
+ignore = Name {*.info}
+ignore = Name {,.}*{.ithmb}
+ignore = Name {Queued,MovieQueue}
+
+ignore = Name {MovieQueue}
+ignore = Name {ServerFiles}
+ignore = Name {C2826B51-5406-4A00-A2C9-82463F8634BC}

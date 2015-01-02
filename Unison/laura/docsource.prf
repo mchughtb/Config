@@ -1,0 +1,9 @@
+root = /Users/rob/Documents
+root = ssh://rob@fliss/Documents
+ignore = Name {.Spotlight-V100,.DS_Store,.Trashes,Cache,.svn,Thumbs.db,*.tmp,*.swp}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+follow= Path {SecureTest,Statements,TPWC,Jobs}
+ignore = Path {.Trashes,scripts,ServerFiles,Outlook}
+mountpoint = SecureTest/.unison_mount_point_check.txt
+ignore = Name {repos}

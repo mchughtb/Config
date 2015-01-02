@@ -1,0 +1,7 @@
+root = /Users/rob/Library/Application Support
+root = ssh://rob@fliss/Library/Application Support
+ignore = Name {.Spotlight-V100,.DS_Store,.Trashes,Cache,.svn,Thumbs.db,*.tmp,*.swp}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+#follow= 
+# mountpoint = SecureTest/.unison_mount_point_check.txt
