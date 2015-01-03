@@ -1,0 +1,13 @@
+# Unison preferences file
+root = /Users/kerrimck/Pictures/
+root = ssh://kerrimck@fliss/Pictures/
+ignore = Path {iPhoto Library,scripts,scripts.bak,Virtual Machines.localized}
+ignore = Name {.DS_Store}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+times = true
+log =  true
+maxthreads = 10
+ignore = Path {Microsoft User Data}
+ignore = Name {.localized}
+ignore = Path {RDC Connections/Default.rdp}

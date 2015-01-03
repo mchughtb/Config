@@ -1,0 +1,14 @@
+# Unison preferences file
+root = /Users/kerrimck/Movies/MovieQueue/
+root = ssh://kerrimck@fliss/Movies/Queued/
+ignore = Path {Archive,Misc,Watched}
+ignore = Name {.DS_Store}
+ignore = Name {sync-log.txt}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+backupnot = Name *
+times = true
+log =  true
+#rsync = false
+maxthreads = 10
+#copythreshold = 50000

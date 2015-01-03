@@ -1,0 +1,9 @@
+# Unison preferences file
+root = /Users/kerrimck/Config/
+root = ssh://kerrimck@fliss/Config/
+ignore = Name {.DS_Store}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+times = true
+maxthreads = 10
+#copythreshold = 50000

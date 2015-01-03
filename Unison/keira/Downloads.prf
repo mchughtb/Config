@@ -1,0 +1,14 @@
+# Unison preferences file
+root = /Users/kerrimck/ServerFiles/Downloads
+root = ssh://kerrimck@fliss/Downloads
+path = Mac
+ignore = Path {Archive}
+ignore = Name {.DS_Store}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+backupnot = Name *
+times = true
+log =  true
+rsync = false
+maxthreads = 10
+#copythreshold = 50000
