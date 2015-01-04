@@ -1,0 +1,6 @@
+root = /Users/rob/Config
+root = ssh://rob@fliss/Config
+ignore = Name {.vagrant,.Spotlight-V100,.DS_Store,.Trashes,Cache,.svn,Thumbs.db,*.tmp,*.swp}
+backuplocation = local
+backupprefix = .unison/$VERSION.
+ignore = Path {.Trashes}

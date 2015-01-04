@@ -8,7 +8,7 @@ inst_brew ssh-copy-id
 inst_brew terminal-notifier
 inst_brew wget
 inst_brew nmap
-inst_brew xmlstartlet
+inst_brew xmlstarlet
 inst_brew colordiff
 inst_brew subversion
 inst_brew trash
