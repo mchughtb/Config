@@ -9,6 +9,7 @@ syncHost=fliss
 flags="$@"
 date "+%Y-%m-%d %H.%M.%S Starting Periodic"
 
+jobRunner2.sh -m $syncHost -n "sync-config" -t 13 $flags $HOME/scripts/sync-config.sh
 jobRunner2.sh -m $syncHost -n "sync-documents" -t 13 $flags $HOME/scripts/sync-documents.sh
 jobRunner2.sh -m $syncHost -n "sync-photos" -t 73 $flags $HOME/scripts/sync-photos.sh
 jobRunner2.sh -m $syncHost -n "sync-queue" -t 23 $flags $HOME/scripts/sync-queue.sh
