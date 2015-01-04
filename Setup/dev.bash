@@ -22,6 +22,7 @@ inst_cask vlc
 inst_cask virtualbox
 inst_cask transmission
 inst_cask xamarin-studio
+inst_cask mono-mdk
 inst_cask adium
 inst_cask vagrant
 inst_cask xquartz
