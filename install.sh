@@ -109,7 +109,7 @@ function remove()
 {
     if [[ -L "$@" ]] ; then
         log "REMOVE LINK: $@"
-        [[ $dryrun ]] || rm "$@"
+        [[ $dryRun ]] || rm "$@"
     elif [[ -e "$@" ]] ; then
         log "BACKUP: $@"
         [[ $dryRun ]] || { mkdir -p "$destdir/$backupname" ; mv -f "$@" "$destdir/$backupname/" ; }
