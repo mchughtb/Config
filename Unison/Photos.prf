@@ -6,7 +6,7 @@ log =  true
 maxthreads = 10
 ignore = Name {.DS_Store,iPod Photo Cache}
 ignore = Name {Thumbs.db}
-ignore = Name {*.info}
+ignore = Name {*.info,*.tmp}
 ignore = Name {,.}*{.ithmb}
 ignore = Path {Raw/2011,Raw/2012}
 
