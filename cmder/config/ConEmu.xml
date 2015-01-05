@@ -488,7 +488,7 @@
 						<key name="Task1" modified="2014-11-28 09:46:16" build="140707">
 					<value name="Name" type="string" data="{Bash}"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="bash.exe --login -cur_console:d:C:\Users\rb90318"/>
+					<value name="Cmd1" type="string" data="bash.exe --login -cur_console:d:%HOMEDRIVE%%HOMEPATH%"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
