@@ -151,7 +151,11 @@ function main() {
 		echo "$host" | grep -qE "$hostpattern" || { log "SKIP: $src -> $dest no match for $host =~ $hostpattern"   ; continue; }
 		echo "$os" | grep -qE "$ospattern"     || { log "SKIP: $src -> $dest no match for $os =~ $ospattern"       ; continue; }
 		local srcfile="$srcdir/$src"
-		local destfile="$destdir/$dest"
+        if [[ "$dest" = /* ]] ; then
+            local destfile="$dest"
+        else
+            local destfile="$destdir/$dest"
+        fi
 		[[ -r "$srcfile" ]] || { echo "ERROR: $src -> $dest sourcefile $srcfile is not readable" ; continue ; }
 		if [[ -e "$destfile" || -L "$destfile" ]] ; then
 			if [[ "$srcfile" -ef "$destfile" ]] ; then
