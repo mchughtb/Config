@@ -13,6 +13,7 @@ inst_brew colordiff
 inst_brew subversion
 inst_brew trash
 inst_brew multimarkdown
+inst_brew shellcheck
 
 
 inst_cask dash
