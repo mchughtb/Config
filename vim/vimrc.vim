@@ -1,10 +1,34 @@
+
 "
-" set up pathogen, https://github.com/tpope/vim-pathogen
+" Set up vundle
 "
-filetype on
+set nocompatible
 filetype off
-call pathogen#infect()
-filetype plugin indent on
+set rtp+=~/.vim/vundle
+call vundle#begin()
+    Plugin 'mileszs/ack.vim'
+    Plugin 'applescript.vim'
+    Plugin 'bundler'
+    Plugin 'commentary.vim'
+    Plugin 'ctrlp.vim'
+    Plugin 'vim-scripts/DeleteTrailingWhitespace'
+    Plugin 'endwise.vim'
+    Plugin 'greplace.vim'
+    Plugin 'Markdown'
+    " no indentnav
+    " replace Plugin 'javascript.vim' with
+    " no nerdtree
+    Plugin 'vim-ruby/vim-ruby'
+    Plugin 'cakebaker/scss-syntax.vim'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'jtratner/vim-flavored-markdown'
+    Plugin 'airblade/vim-gitgutter'
+    " no tagbar
+    Plugin 'pangloss/vim-javascript'
+    " One to try:
+    " Plugin 'vim-addon-ruby-debug-ide'
+call vundle#end()            " required
+filetype plugin indent on                                    " filetypes on after packages loaded
 
 
 set nocompatible                                             " don't bother with vi compatibility
@@ -46,27 +70,29 @@ nmap <leader>r :CtrlPMRUFiles<CR>
 nmap <leader>t :CtrlPCurWD<CR>
 nmap <leader>T :CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
-nmap <leader><space> :call whitespace#strip_trailing()<CR>
+nmap <leader><space> :DeleteTrailingWhitespace<CR>
 nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>v :tabnew $HOME/.vimrc<CR>
 vmap <leader>e :call ExtractVariable()<CR>
 
 "
-" plugin settings
+" Ctrlp settings
 "
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
-let g:NERDSpaceDelims=1
-let g:NERDTreeHijackNetrw=0
+
+"
+" Gitgutter settings
+"
 let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
 
+"
 "  AG setup
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 "
 if executable('ag')
   let g:ackprg = 'ag --nogroup --column --ignore *min.js'
@@ -75,9 +101,9 @@ if executable('ag')
   let g:gitgutter_escape_grep = 1
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    nmap <leader>a :Ack 
+    nmap <leader>a :Ack<Space>
 else   " no ag so map it to a vimgrep  (slow)
-    nmap <leader>a :RvGrep 
+    nmap <leader>a :RvGrep
 endif
 
 " do something similar to ack when ack is not installed on windows
@@ -108,6 +134,7 @@ if (&t_Co == 256 || has('gui_running'))
     colorscheme solarized
   else
     colorscheme desert
+    highlight Signcolumn guibg=DarkBlue
   endif
 endif
 
@@ -177,4 +204,3 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-" simply
