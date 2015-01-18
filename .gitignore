@@ -2,5 +2,6 @@ Bash/aws.bash
 .DS_Store
 Subversion/
 vim/.netrwhist
+vim/bundle
 Icon
 
