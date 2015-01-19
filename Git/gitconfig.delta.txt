@@ -1,0 +1,7 @@
+[user]
+	name = Robert Byrne
+	email = robert.byrne@ubs.com
+[http]
+	proxy = http://byrner:2525timerRace@inet-proxy-b.sputnik.loadb.ubs.net:8085
+[core]
+	editor = vim
