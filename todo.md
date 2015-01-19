@@ -10,6 +10,7 @@
       network share under windows  @done
 - [ ] Use diff to detect change target files in copy mode
 - [ ] Use git subtree or Vundle for vim plugins
+    - make vim use .vim on windows instead of vimfiles
 
 - [ ] Inverse matching of the arch/host regexp so can have one rull for X 
       and another for not X

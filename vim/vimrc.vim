@@ -4,7 +4,7 @@
 "
 set nocompatible
 filetype off
-set rtp+=~/.vim/vundle
+set rtp+=~/vimfiles/vundle
 call vundle#begin()
     Plugin 'mileszs/ack.vim'
     Plugin 'applescript.vim'
@@ -35,6 +35,7 @@ set autoread                                                 " reload files when
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=auto                                          " dont break links
 set directory-=.                                             " don't store swapfiles in the current directory
+set directory+=$HOME/tmp                                     " store swapfiles in users tmp
 set encoding=utf-8
 set hlsearch                                                 " highlight searchs
 set incsearch                                                " search as you type
