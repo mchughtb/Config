@@ -15,9 +15,6 @@ call vundle#begin()
     Plugin 'endwise.vim'
     Plugin 'greplace.vim'
     Plugin 'Markdown'
-    " no indentnav
-    " replace Plugin 'javascript.vim' with
-    " no nerdtree
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'scrooloose/syntastic'
