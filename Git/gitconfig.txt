@@ -1,19 +1,18 @@
 [include]
-    .gitconfig.local
+    path = .gitconfig.local
 [core]
-	excludesfile = /Users/rob/.gitignore_global
+    excludesfile = /Users/rob/.gitignore_global
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = /Volumes/SourceTree/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Volumes/SourceTree/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [push]
-	default = simple
+    default = simple
 [color "sh"]
-	branch = yellow
+    branch = yellow
 [alias]
-	s = status
-	lp = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit
-	unstage = reset --
+    s = status
+    lp = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit
+    unstage = reset --
 
