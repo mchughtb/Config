@@ -15,6 +15,6 @@
 	branch = yellow
 [alias]
 	s = status
-	pretty-log = log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\"
+	lp = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit
 	unstage = reset --
 
