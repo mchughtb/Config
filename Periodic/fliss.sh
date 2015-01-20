@@ -10,8 +10,8 @@ date "+%Y-%m-%d %H.%M.%S Starting Periodic"
 
 flags="$@"
 
-jobRunner2.sh -n "tv-rssd" -t 17 $flags $HOME/scripts/tv-rss.sh -D
-jobRunner2.sh -n "tv-rss" -t 16 $flags $HOME/scripts/tv-rss.sh
+# jobRunner2.sh -n "tv-rssd" -t 17 $flags $HOME/scripts/tv-rss.sh -D
+# jobRunner2.sh -n "tv-rss" -t 16 $flags $HOME/scripts/tv-rss.sh
 jobRunner2.sh -n "eztv-rss" -t 13 $flags $HOME/scripts/eztv-rss.sh -s $HOME/Movies/favourites.txt
 jobRunner2.sh -n "eztv-rss-yesterday" -t 360 $flags $HOME/scripts/eztv-rss.sh -s $HOME/Movies/favourites.txt -t 1
 jobRunner2.sh -n "picasa-ucecrjf" -t 1442  $flags $HOME/scripts/photo-fetch.sh -d "$HOME/Pictures/ServerFiles/Originals/%Y/%Y-%m-01-KelliPicasa" -u ucecrjf -s picasa -L KelliPicasa
