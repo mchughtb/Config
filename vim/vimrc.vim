@@ -15,7 +15,7 @@ call vundle#begin()
     Plugin 'endwise.vim'
     Plugin 'greplace.vim'
     Plugin 'Markdown'
-    Plugin 'vim-ruby/vim-ruby'
+"    Plugin 'vim-ruby/vim-ruby'             " this is bnuilt in to vim now
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'scrooloose/syntastic'
     Plugin 'jtratner/vim-flavored-markdown'
