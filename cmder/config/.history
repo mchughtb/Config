@@ -166,6 +166,7 @@ C:\Users\Robert\Documents\Source\Dex\out\Artifacts\DexWeb\dexweb.cmd -e http://l
 cd Source\Web\
 C:\Users\Robert\Documents\Source\Dex\out\Artifacts\DexWeb\dexweb.cmd -e http://localhost:50124/DexService.svc/soap -m amqp://guest:guest@localhost -x DexDebug.changes start
 color 0
+<<<<<<< HEAD
 cd \UBS\De
 cd \ubs
 cd dev
