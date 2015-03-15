@@ -11,16 +11,16 @@ function once() {
     local check="$2"
     local cmd="$3"
     local post="${4:-""}"
-    echo "================ START       $title ==============="
-    if $check > /dev/null ; then
+    if eval "$check" > /dev/null ; then
         echo "$title: already installed"
     else
+        echo "================ START       $title ==============="
         $cmd
         if [[ -z "$post" ]] ; then
             $post
         fi
+        echo "================ END         $title ==============="
     fi
-    echo "================ END         $title ==============="
 }
 
 # install a homebrew package
@@ -30,7 +30,7 @@ function inst_brew() {
     local title="$1"
     local pkg="$1"
     local cmd="brew install $pkg"
-    local check="brew list -local | grep $pkg"
+    local check="brew list -local | grep -iw $pkg"
     once "$title" "$check" "$cmd"
 }
 
@@ -41,7 +41,7 @@ function inst_cask() {
     local title="$1"
     local pkg="$1"
     local cmd="brew cask install $pkg"
-    local check="brew cask ls $pkg"
+    local check="brew cask list | grep -iw $pkg"
     local post="${2:-""}"
     once "$title" "$check" "$cmd" "$post"
 }
@@ -68,7 +68,7 @@ function bootstrap() {
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew update
         echo "homebrew installed"
     fi
-    inst_brew "caskroom/cask/brew-cask" "brew cask update"
+    inst_brew "brew-cask" "brew cask update"
 
 }
 
