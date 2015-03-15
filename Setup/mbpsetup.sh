@@ -30,7 +30,7 @@ function inst_brew() {
     local title="$1"
     local pkg="$1"
     local cmd="brew install $pkg"
-    local check="brew ls $pkg"
+    local check="brew list -local | grep $pkg"
     once "$title" "$check" "$cmd"
 }
 
