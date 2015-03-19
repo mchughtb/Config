@@ -2,9 +2,13 @@
 "
 " Set up vundle
 "
-set nocompatible
-filetype off
-set rtp+=~/vimfiles/vundle
+set nocompatible                                        " Must be the first line
+filetype off                                            " disable filetypes during vundle
+if has('win32') || has('win64')
+    set rtp+=~/vimfiles/vundle
+else
+    set rtp+=~/.vim/vundle
+endif
 call vundle#begin()
     Plugin 'mileszs/ack.vim'
     Plugin 'applescript.vim'
@@ -15,13 +19,13 @@ call vundle#begin()
     Plugin 'endwise.vim'
     Plugin 'greplace.vim'
     Plugin 'Markdown'
-"    Plugin 'vim-ruby/vim-ruby'             " this is bnuilt in to vim now
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'scrooloose/syntastic'
     Plugin 'jtratner/vim-flavored-markdown'
     Plugin 'airblade/vim-gitgutter'
     " no tagbar
     Plugin 'pangloss/vim-javascript'
+    Plugin 'junegunn/vim-easy-align'
     " One to try:
     " Plugin 'vim-addon-ruby-debug-ide'
 call vundle#end()            " required
@@ -73,6 +77,13 @@ nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>v :tabnew $HOME/.vimrc<CR>
 vmap <leader>e :call ExtractVariable()<CR>
+
+"
+"Easy align
+"
+ "interactive align of text object or motion
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "
 " Ctrlp settings
