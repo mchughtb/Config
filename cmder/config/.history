@@ -166,3 +166,164 @@ C:\Users\Robert\Documents\Source\Dex\out\Artifacts\DexWeb\dexweb.cmd -e http://l
 cd Source\Web\
 C:\Users\Robert\Documents\Source\Dex\out\Artifacts\DexWeb\dexweb.cmd -e http://localhost:50124/DexService.svc/soap -m amqp://guest:guest@localhost -x DexDebug.changes start
 color 0
+cd \UBS\De
+cd \ubs
+cd dev
+dir
+cd ubsd_core2\
+l
+cd Rob1\
+ls
+go
+go help
+go dep-get
+svn
+svn status
+svn add src
+svn add src\DataService\
+cd
+cd 
+go.bat help
+go.bat dep-clean
+go.bat dep-get
+cd
+cd \Users\byrner\Projects\
+dir
+cd Rob1\
+dir
+go dep-get
+dir
+git status
+ls -lt
+ls tools\
+ls runtime\
+ls lib
+ls
+ls -l
+echo runtime >> .gitignore
+echo tools/ >> .gitignore 
+echo lib/ >> .gitignore
+git status
+vi .gitignore 
+git status
+dir
+git status
+ls
+psq delta
+psql delta
+net use * \\XLDN0800NAP.ldn.swissbank.com\c$ 
+net use * \\XLDN0800NAP.ldn.swissbank.com\
+net use * \\XLDN0800NAP.ldn.swissbank.com\Users
+z:
+dir
+cd delta\
+ls
+dir
+cd Projects\
+dir
+xcopy /?
+xcopy /z /D c:\Users\byrner\Projects\Rob1 z:\delta\Projects
+xcopy /z /e /D c:\Users\byrner\Projects\Rob1 z:\delta\Projects
+xcopy /z /e /D c:\Users\byrner\Projects\Rob1 z:\delta\Projects\Rob1
+xcopy /?
+xcopy /z /e /D /Y c:\Users\byrner\Projects\Rob1 z:\delta\Projects\Rob1
+psql delta
+xcopy /z /e /D /Y c:\Users\byrner\Projects\Rob1 z:\delta\Projects\Rob1
+ssh delta@xldn0308nsk.ldn.swissbank.com 'cqlsh -k data 14.67.31.222'
+ssh delta@xldn0308nsk.ldn.swissbank.com 'echo "describe tables" cqlsh -k data 14.67.31.222'
+ssh delta@xldn0308nsk.ldn.swissbank.com 'echo "describe tables"| cqlsh -k data 14.67.31.222'
+ssh delta@xldn0308nsk.ldn.swissbank.com 'echo "describe tables" | cqlsh -k data 14.67.31.222'
+ssh delta@xldn0308nsk.ldn.swissbank.com 'echo "describe tables" | /usr/bin/cqlsh -k data 14.67.31.222'
+ssh delta@xldn0308nsk.ldn.swissbank.com ' /usr/bin/cqlsh -k data 14.67.31.222 -e "describe tables '
+ssh delta@xldn0308nsk.ldn.swissbank.com ' /usr/bin/cqlsh -k data 14.67.31.222 -e "describe tables" '
+echo "describe tables" | ssh delta@xldn0308nsk.ldn.swissbank.com ' /usr/bin/cqlsh -k data 14.67.31.222'
+echo "describe tables;" | ssh delta@xldn0308nsk.ldn.swissbank.com ' /usr/bin/cqlsh -k data 14.67.31.222'
+bash
+cd Projects\Rob1\src\DataService\
+ls
+cd CacheUpload\
+ls
+cd bin\Debug\
+ls
+CacheUpload.exe LEGAL
+CacheUpload.exe UBSW_RB
+curl -v http://xldn0800nap.ldn.swissbank.com:12345/api/portfolios
+curl -v http://xldn0800nap.ldn.swissbank.com:12345/api/portfolios/
+cd Projects\Rob1\
+ls
+cd src\DataService\
+ls
+cd DeltaVee\
+ls
+cd ..
+ls
+cd CacheUpload\
+ls
+cd bin\Debug\
+ls
+CacheUpload.exe UBSW_RB
+CacheUpload.exe AXA
+cd
+cd Projects\
+ls
+cd Rob1\
+ls
+cd src
+ls
+cd DataService\
+ls
+cd SybaseImport
+ls
+cd bin\Debug\
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+cd SybaseImport.Console\
+ls
+cd bin\Debug\
+ls
+SybaseImport.Console.exe
+psql delta
+dir
+SybaseImport.Console.exe
+net use Z:        \\XLDN0800NAP.ldn.swissbank.com\Users
+echo %http_proxy%
+echo %%http_proxy%%
+set 
+set http_proxy=byrner:2525timerRace@inet-proxy-b.sputnik.loadb.ubs.net:8085
+echo %http_proxy%
+gem --help
+gem help install
+gem --http-proxy %http_proxy% install bundler
+gem -s
+which gem
+gem list
+set http_proxy=http://byrner:2525timerRace@inet-proxy-b.sputnik.loadb.ubs.net:8085
+gem list
+gem install bundler
+gem /s http://rubygems.org
+gem /s http://rubygems.org install pry
+gem -s http://rubygems.org install pry
+gem --help
+gem -v
+gem instakk rake
+gem install rake
+gem sources -a http://rubygems.org
+gem sources
+curl -o x.y http://www.google.com
+curl -vv -o x.y http://www.google.com
+cd
+cat .gitconfig
+cd Projects\
+cd Rob1\src\DeltaVee\
+irb
+ruby expand.rb 
+git status
+cd ..
+git add .
+git add -A .
+git commit -m "many changes"
+git svn dcommit

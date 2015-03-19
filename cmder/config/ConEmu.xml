@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2015-01-07 20:39:20" build="140707">
+		<key name=".Vanilla" modified="2015-03-17 14:13:50" build="140707">
 			<value name="ColorTable00" type="dword" data="00222827"/>
 			<value name="ColorTable01" type="dword" data="009e5401"/>
 			<value name="ColorTable02" type="dword" data="0004aa74"/>
@@ -123,12 +123,12 @@
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd Width" type="dword" data="00000065"/>
-			<value name="ConWnd Height" type="dword" data="00000021"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
+			<value name="ConWnd Width" type="dword" data="0000008d"/>
+			<value name="ConWnd Height" type="dword" data="00000032"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="00000251"/>
-			<value name="ConWnd Y" type="dword" data="00000001"/>
+			<value name="ConWnd X" type="dword" data="00000503"/>
+			<value name="ConWnd Y" type="dword" data="00000000"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
 			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -288,7 +288,7 @@
 			<value name="DesktopMode" type="hex" data="00"/>
 			<value name="SnapToDesktopEdges" type="hex" data="00"/>
 			<value name="AlwaysOnTop" type="hex" data="00"/>
-			<value name="SleepInBackground" type="hex" data="01"/>
+			<value name="SleepInBackground" type="hex" data="00"/>
 			<value name="MinimizeOnLoseFocus" type="hex" data="00"/>
 			<value name="DisableFarFlashing" type="hex" data="00"/>
 			<value name="DisableAllFlashing" type="hex" data="00"/>
@@ -483,25 +483,25 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2015-01-07 20:39:21" build="140707">
-				<value name="Count" type="dword" data="00000004"/>
-						<key name="Task1" modified="2015-01-07 20:39:21" build="140707">
+				<key name="Tasks" modified="2015-03-17 14:13:51" build="140707">
+				<value name="Count" type="dword" data="00000006"/>
+						<key name="Task1" modified="2015-03-17 14:13:51" build="140707">
 					<value name="Name" type="string" data="{Bash}"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="bash.exe --login -cur_console:d:%HOMEDRIVE%%HOMEPATH%"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00101142"/>
 				</key>
-						<key name="Task2" modified="2015-01-07 20:39:21" build="140707">
+						<key name="Task2" modified="2015-03-17 14:13:51" build="140707">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="GuiArgs" type="string" data=" /icon &quot;%CMDER_ROOT%\cmder.exe&quot;"/>
 					<value name="Cmd1" type="string" data="cmd /k &quot;%ConEmuDir%\..\init.bat&quot;  -new_console:d:%USERPROFILE%"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00a01143"/>
 				</key>
-						<key name="Task3" modified="2015-01-07 20:39:21" build="140707">
+						<key name="Task3" modified="2015-03-17 14:13:51" build="140707">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data="/dir &quot;%userprofile%&quot;"/>
@@ -509,20 +509,39 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task4" modified="2015-01-07 20:39:21" build="140707">
+						<key name="Task4" modified="2015-03-17 14:13:51" build="140707">
 					<value name="Name" type="string" data="{git-sh}"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00a01147"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="bash /c/app/Git/git-sh.sh"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
+						<key name="Task5" modified="2015-03-17 14:13:51" build="140707">
+					<value name="Name" type="string" data="{LabMon}"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:222 -cur_console:P:&quot;solarized&quot; -t top"/>
+					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:t:224 -t top"/>
+					<value name="Cmd3" type="string" data="ssh delta@xldn0347nsk.ldn.swissbank.com -cur_console:ns1THn  -cur_console:t:226 -t top"/>
+					<value name="Cmd4" type="string" data="ssh delta@xldn0359nsk.ldn.swissbank.com -cur_console:ns2THn -cur_console:t:228 -t top"/>
+					<value name="Active" type="dword" data="00000000"/>
+					<value name="Count" type="dword" data="00000004"/>
+				</key>
+						<key name="Task6" modified="2015-03-17 14:13:51" build="140707">
+					<value name="Name" type="string" data="{xldn308}"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:xldn308nsk -cur_console:P:&quot;tomorrow night blue&quot; "/>
+					<value name="Active" type="dword" data="00000000"/>
+					<value name="Count" type="dword" data="00000001"/>
+				</key>
 			</key>
-				<key name="Apps" modified="2015-01-07 20:39:21" build="140707">
+				<key name="Apps" modified="2015-03-17 14:13:51" build="140707">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-			<key name="Colors" modified="2015-01-07 20:39:21" build="140707">
-			<key name="Palette1" modified="2015-01-07 20:39:21" build="140707">
+			<key name="Colors" modified="2015-03-17 14:13:51" build="140707">
+			<key name="Palette1" modified="2015-03-17 14:13:51" build="140707">
 					<value name="Name" type="string" data="Monokai"/>
 					<value name="ExtendColors" type="hex" data="00"/>
 					<value name="ExtendColorIdx" type="hex" data="0e"/>
