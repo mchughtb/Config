@@ -9,11 +9,11 @@
 - [x] option to copy the files rather than link them so it works from a 
       network share under windows  @done
 - [ ] Use diff to detect change target files in copy mode
-- [ ] Use git subtree or Vundle for vim plugins
-    - make vim use .vim on windows instead of vimfiles
-
+- [x] Use Vundle for vim plugins
 - [ ] Inverse matching of the arch/host regexp so can have one rull for X 
       and another for not X
 - [x] Use a junction for linking under windows
       cmd.exe //c mklink //j targetdir sourcedir
+- [ ] Add dry-run command to mbpsetup
+- [ ] rename Setup files to inidcate machine, functions, categories etc
 
