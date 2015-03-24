@@ -33,9 +33,8 @@ call vundle#end()            " required
 filetype plugin indent on                                    " filetypes on after packages loaded
 
 
-set nocompatible                                             " don't bother with vi compatibility
 syntax enable                                                " enable syntax highlighting
-set autoindent
+set autoindent                                               " auto indent lines
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=auto                                          " dont break links
@@ -77,6 +76,7 @@ nmap <leader><space> :DeleteTrailingWhitespace<CR>
 nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>v :tabnew $HOME/.vimrc<CR>
+nmap <silent> <leader>s :set spell!<CR>
 vmap <leader>e :call ExtractVariable()<CR>
 
 "
