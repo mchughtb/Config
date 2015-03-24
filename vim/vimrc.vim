@@ -110,7 +110,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:gitgutter_escape_grep = 1
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = win_shell ? '' : 'ag -l --nocolor -g "" %s '
     nmap <leader>a :Ack<Space>
 else   " no ag so map it to a vimgrep  (slow)
     nmap <leader>a :RvGrep
