@@ -2,11 +2,8 @@
     path = .gitconfig.local
 [core]
     excludesfile = /Users/rob/.gitignore_global
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-    cmd = /Volumes/SourceTree/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+[diff]
+    tool = vimdiff
 [push]
     default = simple
 [color "sh"]
