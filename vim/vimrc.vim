@@ -2,14 +2,15 @@
 "
 " Set up vundle
 "
-set nocompatible                                        " Must be the first line
-filetype off                                            " disable filetypes during vundle
-if has('win32') || has('win64')
-    set rtp+=~/vimfiles/vundle
-else
-    set rtp+=~/.vim/vundle
-endif
-call vundle#begin()
+set nocompatible
+filetype off
+
+" Set rtp based on windows, posix or cygwin  (shellcmdflag for cygwin detection)
+let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+let &runtimepath .= ',' . expand(vimDir . '/vundle')
+
+call vundle#begin(expand(vimDir . '/bundle'))
     Plugin 'mileszs/ack.vim'
     Plugin 'applescript.vim'
     Plugin 'bundler'
