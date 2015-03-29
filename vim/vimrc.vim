@@ -68,7 +68,6 @@ nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>q :q<CR>
 nmap <leader>w :w<CR>
-nmap <leader>r :CtrlPMRUFiles<CR>
 nmap <leader>t :CtrlPCurWD<CR>
 nmap <leader>T :CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
@@ -78,7 +77,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 map <leader>v :tabnew $HOME/.vimrc<CR>
 nmap <silent> <leader>s :set spell!<CR>
 vmap <leader>e :call ExtractVariable()<CR>
-
+map <leader>o :wincmd o<CR>
 "
 "Easy align
 "
@@ -109,7 +108,7 @@ if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
   let g:gitgutter_escape_grep = 1
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  " Use ag if not on windows  (some problem with AG Mar2015)
   let g:ctrlp_user_command = win_shell ? '' : 'ag -l --nocolor -g "" %s '
     nmap <leader>a :Ack<Space>
 else   " no ag so map it to a vimgrep  (slow)
@@ -213,4 +212,44 @@ endfunc
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+command! -range=% RunRuby call s:RunToScratch("ruby", getline(<line1>,<line2>), 0)
+command! -range=% RunSql call s:RunToScratch( "psql -d delta -P footer=off --set ON_ERROR_STOP=1 ", getline(<line1>,<line2>), 1)
+command! -range=% RunShell call s:RunToScratch( "bash", getline(<line1>,<line2>), 1)
+
+function! s:RunBufferShow(resname)
+    let l:reswin = bufwinnr(a:resname)
+    if l:reswin > -1                      " window lready open
+        exe "sbuffer " . a:resname
+    else                                " Open a new split and set it up.
+        exe "belowright split " . a:resname
+        setlocal buftype=nofile
+        setlocal noswapfile
+        setlocal bufhidden=hide
+        setlocal ft=sql
+        hi CmdErrors guifg=red
+    endif
+endfunction
+
+function! s:RunToScratch(cmd, query, include_input)
+    " execute the command passing script to stdin
+    let l:results = system(a:cmd, a:query)
+    " open a split for the l:results if not already open
+    let l:resname = '__Output_' . bufnr('%')
+    call s:RunBufferShow(l:resname)
+    " append the query to the buffer and scroll it to the middle of the screen
+    normal! G
+    if a:include_input
+        call append(line('$'), a:query)
+        call append(line('$'), "")
+    endif
+    normal! z.
+    " append the l:results to the buffer and highlight errors
+    call append(line('$'), split(l:results, '\v\n'))
+    match CmdErrors /^ERROR:.*$/
+    " go back to the original window
+    exe "wincmd p"
+endfunction
+
+
 
