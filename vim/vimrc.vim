@@ -239,14 +239,14 @@ function! s:RunToScratch(cmd, query, include_input)
     call s:RunBufferShow(l:resname)
     " append the query to the buffer and scroll it to the middle of the screen
     normal! G
-    if a:include_input
+    if a:include_input && v:shell_error == 0
         call append(line('$'), a:query)
         call append(line('$'), "")
     endif
-    normal! z.
     " append the l:results to the buffer and highlight errors
     call append(line('$'), split(l:results, '\v\n'))
     match CmdErrors /^ERROR:.*$/
+    normal! G
     " go back to the original window
     exe "wincmd p"
 endfunction
