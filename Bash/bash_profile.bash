@@ -3,9 +3,6 @@
 #
 
 
-## add local scripts and dhomebrew binaries to the path ahead of the osx ones
-platform=$(uname -o 2> /dev/null || uname -s)
-
 
 ## source the system wide bashrc if it exists
 if [ -s /etc/bash.bashrc ] ; then	# cygwin
@@ -15,7 +12,6 @@ if [ -s /etc/bashrc ] ; then		# OSX
   source /etc/bashrc
 fi
 
-PATH="$HOME/scripts/$platform:$HOME/scripts:/usr/local/bin:/usr/bin:$PATH"
 
 ## source the users bashrc if it exists
 if [ -s "${HOME}/.bashrc" ] ; then

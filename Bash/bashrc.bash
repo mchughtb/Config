@@ -1,6 +1,12 @@
+#!/bin/bash
+
 #
 # .bashrc run by bash for non-login shells
-# 
+#
+
+## add local scripts and dhomebrew binaries to the path ahead of the osx ones
+platform=$(uname -o 2> /dev/null || uname -s)
+PATH="$HOME/scripts/$platform:$HOME/scripts:/usr/local/bin:/usr/bin:$PATH"
 
 # this should work on cygwin and darwin. If the first call fails the second succeeds
 # set this on non-interactive shells as well as unison needs this
@@ -18,7 +24,7 @@ fi
 
 # changes the title of the terminal
 function tabname {
-    printf "\e]1;$1\a"
+    printf "\e]1;%s\a" "$1"
 }
 
 # Everything else is only for interactive shells
