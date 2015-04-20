@@ -13,6 +13,7 @@ inst_brew colordiff
 inst_brew subversion
 inst_brew trash
 inst_brew multimarkdown
+inst_brew pandoc
 inst_brew shellcheck
 
 
@@ -27,5 +28,6 @@ inst_cask mono-mdk
 inst_cask adium
 inst_cask vagrant
 inst_cask xquartz
+inst_cask iphoney
 
 inst_gem bundler
