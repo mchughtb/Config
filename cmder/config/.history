@@ -328,3 +328,21 @@ git add .
 git add -A .
 git commit -m "many changes"
 git svn dcommit
+cd c:\ubs\dev\Projects\Rob1\
+dir
+go dep-get
+go
+cd src/
+ls
+cd Poc\
+ls
+cd ..
+cd DeltaVeeFeed\
+ls
+cd DeltaVeeFeed\bin\
+ls
+cd Debug\`
+cd Debug\
+ls
+tail -f OutputFile.txt 
+ls
