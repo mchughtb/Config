@@ -233,7 +233,7 @@ endfunction
 
 function! s:RunToScratch(cmd, query, include_input)
     " execute the command passing script to stdin
-    let l:results = system(a:cmd, a:query)
+    let l:results = system(a:cmd, join(a:query, "\n" . "\n"))
     " open a split for the l:results if not already open
     let l:resname = '__Output_' . bufnr('%')
     call s:RunBufferShow(l:resname)
