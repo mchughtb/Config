@@ -11,7 +11,7 @@ PATH="$HOME/scripts/$platform:$HOME/scripts:/usr/local/bin:/usr/bin:$PATH"
 # this should work on cygwin and darwin. If the first call fails the second succeeds
 # set this on non-interactive shells as well as unison needs this
 # by convention dns will give    name-en0  or name-wifi so strip the hyphen onwards
-host=$(hostname -s 2> /dev/null || hostname)
+host=$(hostname -s 2> /dev/null || hostname 2> /dev/null || echo $HOSTNAME )
 export UNISONLOCALHOSTNAME=${host%%-*}
 
 ## bring in sub bash files
