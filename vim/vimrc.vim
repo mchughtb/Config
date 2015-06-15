@@ -24,6 +24,7 @@ call vundle#begin(expand(vimDir . '/bundle'))
     Plugin 'scrooloose/syntastic'
     Plugin 'jtratner/vim-flavored-markdown'
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'dbext.vim'
     " no tagbar
     Plugin 'pangloss/vim-javascript'
     Plugin 'junegunn/vim-easy-align'
@@ -78,7 +79,7 @@ nmap <leader><space> :DeleteTrailingWhitespace<CR>
 nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>v :tabnew $HOME/.vimrc<CR>
-nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>z :set spell!<CR>
 vmap <leader>e :call ExtractVariable()<CR>
 map <leader>o :wincmd o<CR>
 "
@@ -260,5 +261,9 @@ function! s:RunToScratch(cmd, query, include_input)
     exe "wincmd p"
 endfunction
 
-
+" dbext
+let g:dbext_default_profile_usual ='type=PGSQL:user=:passwd=:host=localhost:dbname=delta:extra=-P footer=off'
+let g:dbext_default_PGSQL_extra   = '-P footer=off --set ON_ERROR_STOP=1'
+let g:dbext_default_PGSQL_pgpass             = expand('$HOME/.pgpass')
+let g:dbext_default_profile = 'usual'
 
