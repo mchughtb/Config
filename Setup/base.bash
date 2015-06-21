@@ -9,7 +9,7 @@ done
 #
 # Must haves cask
 #
-for cask in macvim google-chrome alfred flux spectacle unison nvalt ; do
+for cask in macvim google-chrome alfred flux hammerspoon  unison nvalt ; do
     inst_cask "$cask"
 done
 
