@@ -50,6 +50,7 @@ set ruler                                                    " show where you ar
 set scrolloff=3                                              " show context above/below cursorline
 set shiftwidth=4                                             " normal mode indentation commands use 4 spaces
 set showcmd
+set ignorecase
 set smartcase                                                " case-sensitive search if any caps
 set tabstop=4                                                " actual tabs occupy 4 characters
 set expandtab                                                " expand tabs by default
