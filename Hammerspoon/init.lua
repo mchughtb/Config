@@ -18,6 +18,15 @@ grid.topLeft     = {x=0, y=0, h=1, w=1};
 hs.window.animationDuration = 0
 local gridcache = {};
 
+-----------------------------------------------
+-- Reload config on write
+-----------------------------------------------
+function reload_config(files)
+    hs.reload()
+end
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
+hs.alert.show("Hammerspoon\nConfig loaded")
+
 ------
 -- Maximumise current window in next screen or toggle back to previous position
 ------
@@ -108,15 +117,6 @@ binder('k', hyper, modalKey, moveGrid(grid.bottomLeft));
 binder("m", hyper, modalKey, toggleAltScreen);
 binder('i', hyper, modalKey, hs.hints.windowHints);
 
-
------------------------------------------------
--- Reload config on write
------------------------------------------------
-function reload_config(files)
-    hs.reload()
-end
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
-hs.alert.show("Hammerspoon\nConfig loaded")
 
 -- -- Manual grid function
 -- function lefthalf()
