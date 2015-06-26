@@ -8,9 +8,14 @@ grid.GRIDWIDTH=2
 grid.GRIDHEIGHT=2
 grid.MARGINX = 0
 grid.MARGINY = 0
+grid.fullScreen  = {x=0, y=0, w=grid.GRIDWIDTH, h=grid.GRIDHEIGHT};
+grid.leftHalf    = {x=0, y=0, h=2, w=1};
+grid.rightHalf   = {x=1, y=0, h=2, w=1};
+grid.topRight    = {x=1, y=0, h=1, w=1};
+grid.bottomRight = {x=1, y=1, h=1, w=1};
+grid.bottomLeft  = {x=0, y=1, h=1, w=1};
+grid.topLeft     = {x=0, y=0, h=1, w=1};
 hs.window.animationDuration = 0
-hs.hints.style = 'vimperator'
-
 local gridcache = {};
 
 ------
@@ -31,6 +36,7 @@ function toggleAltScreen()
     end
 end
 
+-- move current window to grid positions
 function moveCurrentGrid(pos)
     local win = hs.window.focusedWindow()
     if win then
@@ -41,76 +47,76 @@ function moveCurrentGrid(pos)
     end
 end
 
-function leftHalf()
-    moveCurrentGrid({x=0, y=0, h=2, w=1})
+function focus(app)
+    return function()
+        hs.application.launchOrFocus(app);
+    end
 end
 
-function rightHalf()
-    moveCurrentGrid({x=1, y=0, h=2, w=1})
+function moveGrid(g)
+    return function()
+        moveCurrentGrid(g);
+    end
 end
 
-function fullScreen()
-    moveCurrentGrid({w = grid.GRIDWIDTH, h = grid.GRIDHEIGHT, x = 0, y = 0})
+function setupMode()
+    local modalKey = hs.hotkey.modal.new({"cmd", "shift"}, "j")
+    modalKey.entered = function()
+        local msg = [[   Mode
+            T    Terminal 
+            V    MacVim
+            B    Chrome
+        ]]
+        hs.alert.show(msg)
+    end
+    modalKey.exited = function()  hs.alert.show('Exited modal')  end
+    modalKey:bind({}, 'escape', function() modalKey:exit() end)
+    return modalKey;
 end
 
-function topRight()
-    moveCurrentGrid({x=1, y=0, h=1, w=1})
+-- return a function that wull call f and then exit the mode
+function exitModeWith(mode, f)
+    return function()
+        mode:exit();
+        f();
+    end
 end
 
-function bottomRight()
-    moveCurrentGrid({x=1, y=1, h=1, w=1})
+-- bind key to combo+key and to mode-key
+function binder(key, combo, mode, f)
+    if combo then
+        hs.hotkey.bind(combo, key, f)
+    end
+    if mode then
+        mode:bind({}, key, exitModeWith(mode, f));
+    end
 end
 
-function bottomLeft()
-    moveCurrentGrid({x=0, y=1, h=1, w=1})
-end
-
-function topLeft()
-    moveCurrentGrid({x=0, y=0, h=1, w=1})
-end
+local modalKey = setupMode();
 
 
-hs.hotkey.bind(hyper, '[', leftHalf)
-hs.hotkey.bind(hyper, ']', rightHalf)
-hs.hotkey.bind(hyper, 'f', fullScreen)
-hs.hotkey.bind(hyper, 'p', topRight)
-hs.hotkey.bind(hyper, 'l', bottomRight)
-hs.hotkey.bind(hyper, 'o', topLeft)
-hs.hotkey.bind(hyper, 'k', bottomLeft)
-hs.hotkey.bind(hyper, "m", toggleAltScreen);
+binder('t', hyper, modalKey, focus('terminal'));
+binder('v', nil,   modalKey, focus('MacVim'));
+binder('b', hyper, modalKey, focus('Google Chrome'));
+binder('[', hyper, modalKey, moveGrid(grid.leftHalf));
+binder(']', hyper, modalKey, moveGrid(grid.rightHalf));
+binder('f', hyper, modalKey, moveGrid(grid.fullScreen));
+binder('p', hyper, modalKey, moveGrid(grid.topRight));
+binder('l', hyper, modalKey, moveGrid(grid.bottomRight));
+binder('o', hyper, modalKey, moveGrid(grid.topLeft));
+binder('k', hyper, modalKey, moveGrid(grid.bottomLeft));
+binder("m", hyper, modalKey, toggleAltScreen);
+binder('i', hyper, modalKey, hs.hints.windowHints);
+
 
 -----------------------------------------------
 -- Reload config on write
 -----------------------------------------------
-
 function reload_config(files)
     hs.reload()
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 hs.alert.show("Hammerspoon\nConfig loaded")
-
------------------------------------------------
--- Hyper i to show window hints
------------------------------------------------
-
-hs.hotkey.bind(hyper, 'i', function()
-    hs.hints.windowHints()
-end)
-
------------------------------------------------
--- switch window focus
------------------------------------------------
---
--- hs.hotkey.bind(hyper, 'Up', function()
---     if hs.window.focusedWindow() then
---         hs.window.focusedWindow():focusWindowNorth()
---     else
---         hs.alert.show("No active window")
---     end
--- end)
---
---
---
 
 -- -- Manual grid function
 -- function lefthalf()
