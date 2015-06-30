@@ -27,6 +27,7 @@ call vundle#begin(expand(vimDir . '/bundle'))
     " no tagbar
     Plugin 'pangloss/vim-javascript'
     Plugin 'junegunn/vim-easy-align'
+    Plugin 'dbext'
     " One to try:
     " Plugin 'vim-addon-ruby-debug-ide'
 call vundle#end()            " required
@@ -59,6 +60,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set switchbuf=usetab,newtab                                 " have quickfix commands use tabs
 set ve=block                                                " virtual edit when block select  (^V)
+set diffopt=filler,vertical                                 " virtical split in diff
 
 "
 " keyboard shortcuts
