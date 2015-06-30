@@ -75,6 +75,7 @@ function setupMode()
             T    Terminal 
             V    MacVim
             B    Chrome
+            E    Mail
         ]]
         hs.alert.show(msg)
     end
@@ -104,6 +105,7 @@ end
 local modalKey = setupMode();
 
 
+binder('e', hyper, modalKey, focus('Mail'));
 binder('t', hyper, modalKey, focus('terminal'));
 binder('v', nil,   modalKey, focus('MacVim'));
 binder('b', hyper, modalKey, focus('Google Chrome'));
