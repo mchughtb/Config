@@ -45,6 +45,20 @@ function toggleAltScreen()
     end
 end
 
+-- move current window to another screen
+function moveCurrentScreen(direction)
+    local win = hs.window.focusedWindow()
+    if win then
+        if direction == "left" then
+            win:moveOneScreenWest();
+        else
+            win:moveOneScreenEast();
+        end
+    else
+        hs.alert.show("No active window")
+    end
+end
+
 -- move current window to grid positions
 function moveCurrentGrid(pos)
     local win = hs.window.focusedWindow()
@@ -59,6 +73,12 @@ end
 function focus(app)
     return function()
         hs.application.launchOrFocus(app);
+    end
+end
+
+function moveScreen(g)
+    return function()
+        moveCurrentScreen(g)
     end
 end
 
@@ -118,6 +138,8 @@ binder('o', hyper, modalKey, moveGrid(grid.topLeft));
 binder('k', hyper, modalKey, moveGrid(grid.bottomLeft));
 binder("m", hyper, modalKey, toggleAltScreen);
 binder('i', hyper, modalKey, hs.hints.windowHints);
+binder('left', hyper, modalKey, moveScreen("left"));
+binder('right', hyper, modalKey, moveScreen("right"));
 
 
 -- -- Manual grid function
