@@ -60,7 +60,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set switchbuf=usetab,newtab                                 " have quickfix commands use tabs
 set ve=block                                                " virtual edit when block select  (^V)
-set diffopt=filler,vertical                                 " virtical split in diff
+set diffopt=filler,vertical,context:100                     " virtical split in diff, only fold if 100 lines match
 
 "
 " keyboard shortcuts
