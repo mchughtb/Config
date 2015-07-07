@@ -3,7 +3,7 @@
 [core]
     excludesfile = /Users/rob/.gitignore_global
 [diff]
-    tool = vimdiff
+	tool = gvimdiff
 [push]
     default = simple
 [color "sh"]
@@ -13,5 +13,4 @@
     lp = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit
     unstage = reset --
     ff = pull --ff-only
-
 

@@ -1,4 +1,6 @@
 [user]
-	name = Robert Byrne
-	email = robert.byrne@ubs.com
-
+    name = Robert Byrne
+    email = robert@byrnemail.org
+[merge]
+    tool = gvimdiff
+    conflictstyle = diff3
