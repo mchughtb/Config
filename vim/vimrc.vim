@@ -19,7 +19,7 @@ call vundle#begin(expand(vimDir . '/bundle'))
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
     Plugin 'endwise.vim'
     Plugin 'greplace.vim'
-    Plugin 'Markdown'
+"    Plugin 'Markdown'
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'scrooloose/syntastic'
     Plugin 'jtratner/vim-flavored-markdown'
@@ -27,7 +27,7 @@ call vundle#begin(expand(vimDir . '/bundle'))
     " no tagbar
     Plugin 'pangloss/vim-javascript'
     Plugin 'junegunn/vim-easy-align'
-    Plugin 'dbext'
+    Plugin 'vim-pandoc/vim-pandoc-syntax'
     " One to try:
     " Plugin 'vim-addon-ruby-debug-ide'
 call vundle#end()            " required
@@ -133,10 +133,16 @@ autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xm
 autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
 autocmd BufRead,BufNewFile *.targets set filetype=xml              " msbuild is xml
 autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
+
+"
+" Markdown / pandoc
+"
 augroup markdown
     au!
-    au BufNewFile,BufRead README,*.md,*.markdown setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead README,*.md setlocal filetype=markdown.pandoc
 augroup END
+" Do not use conceal
+let g:pandoc#syntax#conceal#use = 0
 
 "
 " gui settings
