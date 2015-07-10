@@ -19,13 +19,9 @@ call vundle#begin(expand(vimDir . '/bundle'))
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
     Plugin 'endwise.vim'
     Plugin 'greplace.vim'
-"    Plugin 'Markdown'
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'scrooloose/syntastic'
-    Plugin 'jtratner/vim-flavored-markdown'
     Plugin 'airblade/vim-gitgutter'
-    " no tagbar
-    Plugin 'pangloss/vim-javascript'
     Plugin 'junegunn/vim-easy-align'
     Plugin 'vim-pandoc/vim-pandoc-syntax'
     " One to try:
@@ -127,12 +123,12 @@ com! -nargs=1 RvGrep call s:RVimGrep(<f-args>)
 "
 " filetypes
 "
-autocmd BufRead,BufNewFile *.fdoc set filetype=yaml                " fdoc is yaml
-autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
-autocmd BufRead,BufNewFile *.plist set filetype=xml                " plist is xml
-autocmd BufRead,BufNewFile *.build set filetype=xml                " msbuild is xml
-autocmd BufRead,BufNewFile *.targets set filetype=xml              " msbuild is xml
-autocmd VimResized * :wincmd =                                     " automatically rebalance windows on vim resize
+autocmd BufRead,BufNewFile *.fdoc    set filetype=yaml              " fdoc is yaml
+autocmd BufRead,BufNewFile *.build   set filetype=xml               " msbuild is xml
+autocmd BufRead,BufNewFile *.plist   set filetype=xml               " plist is xml
+autocmd BufRead,BufNewFile *.build   set filetype=xml               " msbuild is xml
+autocmd BufRead,BufNewFile *.targets set filetype=xml               " msbuild is xml
+autocmd VimResized * :wincmd =                                      " automatically rebalance windows on vim resize
 
 "
 " Markdown / pandoc
@@ -148,12 +144,8 @@ let g:pandoc#syntax#conceal#use = 0
 " gui settings
 "
 if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
-  else
     colorscheme desert
     highlight Signcolumn guibg=DarkBlue
-  endif
 endif
 
 "
@@ -204,8 +196,6 @@ function! TerminalTabHere()
 endfunction
 com! Ttab call TerminalTabHere()
 
-
-
 " Show syntax highlighting groups for word under cursor
 nmap <leader>z :call <SID>SynStack()<CR>
 
@@ -215,7 +205,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
 
 " Source local cutomizations
 if filereadable(expand("~/.vimrc.local"))
@@ -260,7 +249,9 @@ function! s:RunToScratch(cmd, query, include_input)
     exe "wincmd p"
 endfunction
 
+"
 " dbext
+"
 let g:dbext_default_profile_usual ='type=PGSQL:user=:passwd=:host=localhost:dbname=delta:extra=-P footer=off'
 let g:dbext_default_PGSQL_extra   = '-P footer=off --set ON_ERROR_STOP=1'
 let g:dbext_default_PGSQL_pgpass             = expand('$HOME/.pgpass')
