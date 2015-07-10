@@ -13,4 +13,8 @@
     lp = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit
     unstage = reset --
     ff = pull --ff-only
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
 
