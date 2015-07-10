@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2015-04-09 16:03:02" build="140707">
+		<key name=".Vanilla" modified="2015-07-02 12:13:06" build="140707">
 			<value name="ColorTable00" type="dword" data="00222827"/>
 			<value name="ColorTable01" type="dword" data="009e5401"/>
 			<value name="ColorTable02" type="dword" data="0004aa74"/>
@@ -47,8 +47,8 @@
 			<value name="CursorTypeActive" type="dword" data="000232c1"/>
 			<value name="CursorTypeInactive" type="dword" data="00823282"/>
 			<value name="ClipboardDetectLineEnd" type="hex" data="01"/>
-			<value name="ClipboardBashMargin" type="hex" data="00"/>
-			<value name="ClipboardTrimTrailing" type="hex" data="02"/>
+			<value name="ClipboardBashMargin" type="hex" data="01"/>
+			<value name="ClipboardTrimTrailing" type="hex" data="00"/>
 			<value name="ClipboardEOL" type="hex" data="00"/>
 			<value name="ClipboardArrowStart" type="hex" data="00"/>
 			<value name="ClipboardAllLines" type="hex" data="01"/>
@@ -124,11 +124,11 @@
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
 			<value name="WindowMode" type="dword" data="00000520"/>
-			<value name="ConWnd Width" type="dword" data="0000004c"/>
-			<value name="ConWnd Height" type="dword" data="0000003b"/>
+			<value name="ConWnd Width" type="dword" data="0000009e"/>
+			<value name="ConWnd Height" type="dword" data="00000024"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="00000500"/>
-			<value name="ConWnd Y" type="dword" data="00000000"/>
+			<value name="ConWnd X" type="dword" data="000004f0"/>
+			<value name="ConWnd Y" type="dword" data="0000001e"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
 			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -342,7 +342,7 @@
 			<value name="Multi.Modifier" type="dword" data="00000011"/>
 			<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
 			<value name="KeyMacroVersion" type="hex" data="02"/>
-			<value name="MinimizeRestore" type="dword" data="000011c0"/>
+			<value name="MinimizeRestore" type="dword" data="00101134"/>
 			<value name="MinimizeRestore2" type="dword" data="00000000"/>
 			<value name="GlobalRestore" type="dword" data="00000000"/>
 			<value name="ForcedFullScreen" type="dword" data="12115b0d"/>
@@ -483,17 +483,17 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2015-04-09 16:03:02" build="140707">
-				<value name="Count" type="dword" data="00000007"/>
-						<key name="Task1" modified="2015-04-09 16:03:02" build="140707">
+				<key name="Tasks" modified="2015-07-02 12:13:07" build="140707">
+				<value name="Count" type="dword" data="00000008"/>
+						<key name="Task1" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{Bash}"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="bash.exe --login -cur_console:d:%HOMEDRIVE%%HOMEPATH%"/>
+					<value name="Cmd1" type="string" data="bash.exe --login -cur_console:d:c:\ubs\dev\projects"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 					<value name="Hotkey" type="dword" data="00101142"/>
 				</key>
-						<key name="Task2" modified="2015-04-09 16:03:02" build="140707">
+						<key name="Task2" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="GuiArgs" type="string" data=" /icon &quot;%CMDER_ROOT%\cmder.exe&quot;"/>
 					<value name="Cmd1" type="string" data="cmd /k &quot;%ConEmuDir%\..\init.bat&quot;  -new_console:d:%USERPROFILE%"/>
@@ -501,15 +501,15 @@
 					<value name="Count" type="dword" data="00000001"/>
 					<value name="Hotkey" type="dword" data="00a01143"/>
 				</key>
-						<key name="Task3" modified="2015-04-09 16:03:02" build="140707">
+						<key name="Task3" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
-					<value name="GuiArgs" type="string" data="/dir &quot;%userprofile%&quot;"/>
+					<value name="GuiArgs" type="string" data="/dir &quot;c:\UBS\dev&quot;"/>
 					<value name="Cmd1" type="string" data="powershell"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task4" modified="2015-04-09 16:03:02" build="140707">
+						<key name="Task4" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{git-sh}"/>
 					<value name="Hotkey" type="dword" data="00a01147"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -517,42 +517,60 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task5" modified="2015-04-09 16:03:02" build="140707">
+						<key name="Task5" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{LabMon}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:222 -cur_console:P:&quot;solarized&quot; -t top"/>
-					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:t:224 -t top"/>
-					<value name="Cmd3" type="string" data="ssh delta@xldn0347nsk.ldn.swissbank.com -cur_console:ns1THn  -cur_console:t:226 -t top"/>
-					<value name="Cmd4" type="string" data="ssh delta@xldn0359nsk.ldn.swissbank.com -cur_console:ns2THn -cur_console:t:228 -t top"/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:308  -cur_console:P:^&lt;Solarized^&gt; -t 'top;bash -l'"/>
+					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:P:^&lt;Solarized^&gt;  -cur_console:t:336 -t 'top;bash -l'"/>
+					<value name="Cmd3" type="string" data="ssh delta@xldn0159nsk.ldn.swissbank.com -cur_console:ns1THn  -cur_console:P:^&lt;Solarized^&gt; -cur_console:t:159 -t 'top;bash -l'"/>
+					<value name="Cmd4" type="string" data="ssh delta@xldn0174nsk.ldn.swissbank.com -cur_console:ns2THn  -cur_console:P:^&lt;Solarized^&gt; -cur_console:t:174 -t 'top;bash -l'"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000004"/>
 				</key>
-						<key name="Task6" modified="2015-04-09 16:03:02" build="140707">
-					<value name="Name" type="string" data="{xldn308}"/>
+						<key name="Task6" modified="2015-07-02 12:13:07" build="140707">
+					<value name="Name" type="string" data="{xldn0308}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -L 9432:localhost:5432 -cur_console:t:xldn308nsk -cur_console:P:&quot;tomorrow night blue&quot; "/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task7" modified="2015-04-09 16:03:02" build="140707">
-					<value name="Name" type="string" data="{CSMon}"/>
+						<key name="Task7" modified="2015-07-02 12:13:07" build="140707">
+					<value name="Name" type="string" data="{xldn0336}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:222 -cur_console:P:&quot;solarized&quot; -t 'tail -f /var/log/cassandra/system.log || bash'"/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:t:xldn336nsk -cur_console:P:&quot;tomorrow night blue&quot; "/>
 					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:t:224 -t 'tail -f /var/log/cassandra/system.log ; bash'"/>
 					<value name="Cmd3" type="string" data="ssh delta@xldn0347nsk.ldn.swissbank.com -cur_console:ns1THn  -cur_console:t:226 -t 'tail -f /var/log/cassandra/system.log ;  bash'"/>
 					<value name="Cmd4" type="string" data="ssh delta@xldn0359nsk.ldn.swissbank.com -cur_console:ns2THn -cur_console:t:228 -t 'tail -f /var/log/cassandra/system.log ; bash'"/>
 					<value name="Active" type="dword" data="00000000"/>
-					<value name="Count" type="dword" data="00000004"/>
+					<value name="Count" type="dword" data="00000001"/>
+				</key>
+						<key name="Task8" modified="2015-07-02 12:13:07" build="140707">
+					<value name="Name" type="string" data="{PGLogs}"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0308nsk.ldn.swissbank.com  -cur_console:t:pg308  -cur_console:P:^&lt;Solarized^&gt; -t 'sudo sh -c &quot;tail -f /data2/pg/data/pg_log/*&quot; ''"/>
+					<value name="Active" type="dword" data="00000000"/>
+					<value name="Count" type="dword" data="00000003"/>
+					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:P:^&lt;Solarized^&gt;  -cur_console:t:pg336 -t 'sudo sh -c &quot;tail -f /data2/pg/data/pg_log/* &quot; ''"/>
+					<value name="Cmd3" type="string" data="bash.exe -c ls -1t /c/UBS/dev/pgdata/ | head -1 | xargs tail -f"/>
+				</key>
+						<key name="Task9" modified="2015-05-27 16:47:31" build="140707">
+					<value name="Name" type="string" data="{xldn0800nap}"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="ssh delta@xldn0800nap.ldn.swissbank.com  -cur_console:t:xldn0800nap -cur_console:P:&quot;tomorrow night blue&quot; "/>
+					<value name="Active" type="dword" data="00000000"/>
+					<value name="Count" type="dword" data="00000001"/>
 				</key>
 			</key>
-				<key name="Apps" modified="2015-04-09 16:03:02" build="140707">
+				<key name="Apps" modified="2015-07-02 12:13:07" build="140707">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-			<key name="Colors" modified="2015-04-09 16:03:02" build="140707">
-			<key name="Palette1" modified="2015-04-09 16:03:02" build="140707">
+			<key name="Colors" modified="2015-07-02 12:13:07" build="140707">
+			<key name="Palette1" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="Monokai"/>
 					<value name="ExtendColors" type="hex" data="00"/>
 					<value name="ExtendColorIdx" type="hex" data="0e"/>
@@ -611,7 +629,7 @@
 			<value name="Multi.SplitFocusR" type="dword" data="00005d27"/>
 			<value name="CloseGroupPrcKey" type="dword" data="00000000"/>
 			<value name="SetDefaultTerminalStartupTSA" type="hex" data="01"/>
-			<value name="CTS.HtmlFormat" type="hex" data="00"/>
+			<value name="CTS.HtmlFormat" type="hex" data="01"/>
 			<value name="TabIcons" type="hex" data="01"/>
 			<value name="Multi.NewConsolePopup2" type="dword" data="00000000"/>
 			<value name="CloseAllConKey" type="dword" data="00000000"/>
