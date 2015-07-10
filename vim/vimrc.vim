@@ -113,7 +113,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:gitgutter_escape_grep = 1
   " Use ag if not on windows  (some problem with AG Mar2015)
-  let g:ctrlp_user_command = win_shell ? '' : 'ag -l --nocolor -g "" %s '
+  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s '
     nmap <leader>a :Ack<Space>
 else   " no ag so map it to a vimgrep  (slow)
     nmap <leader>a :RvGrep
