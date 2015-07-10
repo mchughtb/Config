@@ -24,7 +24,6 @@ call vundle#begin(expand(vimDir . '/bundle'))
     Plugin 'scrooloose/syntastic'
     Plugin 'jtratner/vim-flavored-markdown'
     Plugin 'airblade/vim-gitgutter'
-    Plugin 'dbext.vim'
     " no tagbar
     Plugin 'pangloss/vim-javascript'
     Plugin 'junegunn/vim-easy-align'
