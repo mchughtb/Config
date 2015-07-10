@@ -3,7 +3,7 @@
 [core]
     excludesfile = /Users/rob/.gitignore_global
 [diff]
-	tool = gvimdiff
+    tool = gvimdiff
 [push]
     default = simple
 [color "sh"]
