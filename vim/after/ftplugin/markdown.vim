@@ -10,7 +10,7 @@ setlocal cc=81                  " display red line at char 81
 " - blah
 " [^1] blah
 " when reformatting
-let &formatlistpat='^\s*\(\d\+\.\)\+\s\+\|^\s*[-*+]\s\+\|^\s*\[\d\+\]\s\+\|^\[^.*\]:\s\+\|^\s*\(\l\+\.\)\+\s\+'
+let &formatlistpat='^\s*\(\d\+\.\)\+\s\+\|^\s*[-*+]\s\+\|^\s*\[\d\+\]\s\+\|^\[^.*\]:\s\+\|^\s*\(\l\.\)\s\+'
 setlocal autoindent
 setlocal formatoptions=tnr     " hard wrap and format while typing
 
