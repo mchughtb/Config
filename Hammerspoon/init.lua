@@ -2,8 +2,12 @@
 -- Set up
 -----------------------------------------------
 
-local hyper = {"alt", "cmd"}
-local grid = require "hs.grid"
+local hyper = {"alt", "cmd"};
+local grid = require "hs.grid";
+local appFinder = require "hs.appFinder";
+local logger = require "hs.logger";
+local console = logger.new('init', 'debug');
+
 grid.GRIDWIDTH=2
 grid.GRIDHEIGHT=2
 grid.MARGINX = 0
@@ -70,29 +74,32 @@ function moveCurrentGrid(pos)
     end
 end
 
+-- change application focus. Wrapped in a function so can be used in bindingyy
 function focus(app)
     return function()
         hs.application.launchOrFocus(app);
     end
 end
 
+-- change application screen. Wrapped in a function so can be used in bindingyy
 function moveScreen(g)
     return function()
         moveCurrentScreen(g)
     end
 end
 
+-- change application grid location. Wrapped in a function so can be used in bindingyy
 function moveGrid(g)
     return function()
         moveCurrentGrid(g);
     end
 end
 
-function setupMode()
+function setupModal()
     local modalKey = hs.hotkey.modal.new({"cmd", "shift"}, "j")
     modalKey.entered = function()
         local msg = [[   Mode
-            T    Terminal 
+            T    Terminal
             V    MacVim
             B    Chrome
             E    Mail
@@ -122,7 +129,7 @@ function binder(key, combo, mode, f)
     end
 end
 
-local modalKey = setupMode();
+local modalKey = setupModal();
 
 
 binder('e', hyper, modalKey, focus('Mail'));
@@ -137,10 +144,59 @@ binder('l', hyper, modalKey, moveGrid(grid.bottomRight));
 binder('o', hyper, modalKey, moveGrid(grid.topLeft));
 binder('k', hyper, modalKey, moveGrid(grid.bottomLeft));
 binder("m", hyper, modalKey, toggleAltScreen);
-binder('i', hyper, modalKey, hs.hints.windowHints);
+binder('h', hyper, modalKey, hs.hints.windowHints);
 binder('left', hyper, modalKey, moveScreen("left"));
 binder('right', hyper, modalKey, moveScreen("right"));
 
+function terminalWindowEvent(element, event)
+end
+
+-- install a hook to merge terminal windows
+function terminalMergeHook(application)
+    local terminalWatcher = application:newWatcher(function(element, event)
+        console.d("Terminal: Element:" .. element:title() .. "\nEvent: " .. event);
+        if(element:isStandard() == false) then
+            return; -- dont hook prefs window or inspectors
+        end
+        if( application:isFrontmost() == false) then
+            application:activate();
+        end
+        local windows = application:allWindows();
+        for i,w in pairs(windows) do
+            if(w:id() ~= element:id()) then
+                w:becomeMain();
+                break;
+            end
+        end
+        application:selectMenuItem({"Window", "Merge All Windows"});
+    end);
+    local events = hs.uielement.watcher;
+    terminalWatcher:start({events.windowCreated});
+end
+
+function appWatchEvent(name, event, application)
+    --console.d("ApplicationEvent: " .. name .."(" .. event .. ")");
+    if (event == hs.application.watcher.launched) then
+        if (appName == "Terminal") then
+            -- disabled for now
+            --terminalMergeHook(application);
+        end
+    end
+end
+
+-- hook ui events in current or new terminal windows
+function initWatcher()
+    console:d("Initialising application watcher");
+    local appWatcher = hs.application.watcher.new(appWatchEvent);
+    appWatcher:start();
+    local running = appFinder.appFromName("Terminal");
+    if(running) then
+        terminalMergeHook(running)
+    end
+    return appWatcher;
+end
+
+appWatcher = initWatcher();
 
 -- -- Manual grid function
 -- function lefthalf()
