@@ -12,8 +12,6 @@ inst_brew xmlstarlet
 inst_brew colordiff
 inst_brew subversion
 inst_brew trash
-inst_brew multimarkdown
-inst_brew pandoc
 inst_brew shellcheck
 
 
