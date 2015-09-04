@@ -22,7 +22,7 @@ os=$( uname )
 
 function usage()
 {
-    cat <<-END
+    cat <<END
 
     Usage:     $0 -nv -s source_dir -d dest_dir -m hostname -o os configfile
 
@@ -43,7 +43,7 @@ function usage()
            begins with satur (saturday, saturn etc..) and uname is either Darwin or Linux.
            Patterns are passed to grep -E  an empty pattern will match any host/platform
 
-    END
+END
 }
 
 function process_args()
