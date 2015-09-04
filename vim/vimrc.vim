@@ -59,9 +59,13 @@ set ve=block                                                " virtual edit when 
 set diffopt=filler,vertical,context:100                     " virtical split in diff, only fold if 100 lines match
 
 "
-" keyboard shortcuts
+" Leader key
 "
 let mapleader = ','
+
+"
+" keyboard shortcuts
+"
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
@@ -72,15 +76,15 @@ nmap <leader>T :CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :DeleteTrailingWhitespace<CR>
 nmap <leader>g :GitGutterToggle<CR>
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-map <leader>v :tabnew $HOME/.vimrc<CR>
+map  <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map  <leader>v :tabnew $HOME/.vimrc<CR>
 nmap <silent> <leader>z :set spell!<CR>
 vmap <leader>e :call ExtractVariable()<CR>
-map <leader>o :wincmd o<CR>
+map  <leader>o :wincmd o<CR>
 "
 "Easy align
 "
- "interactive align of text object or motion
+"interactive align of text object or motion
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
