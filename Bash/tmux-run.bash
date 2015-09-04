@@ -1,13 +1,10 @@
 #!/bin/bash
 
-set -u
-set -e
-
 # run command in a tmux window called "output"
 # create the window if it is not already there
 # when run outside a tmux session just run the command normally
 function tmux_run {
-    if [[ $TMUX ]] ; then
+    if [[ -n ${TMUX:-""} ]] ; then
         local window
         window=$( tmux list-windows | grep ": output" | cut -d':' -f1 )
         if [[ -z $window ]] ; then
@@ -19,5 +16,3 @@ function tmux_run {
     fi
 }
 
-
-tmux_run echo hello from shell

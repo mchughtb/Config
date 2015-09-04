@@ -7,9 +7,23 @@ needs to be. It depends heavily on brew.sh and brew cask to install
 everything but it installs these first so it should automate the process of
 building a new osx install.
 
-The machine Setup files are in the Setup folder. There is one generic script,
+### OSX Configuration ###
+
+A collection of dev friendly osx defaults are in 
+
+    Setup/osx-defaults.bash
+
+this is largely cribbed from https://mths.be/osx. I'd recommend reading
+through it before running it.
+
+### Software Install ###
+
+The software Setup files are in the Setup folder. There is one generic script,
 mbpsetup.sh that is used to bootstrap brew and cask and then do the
 installation.
+
+I keep a script per machine which contains the command to bootstrap. So
+`kat.bash` is my laptop and `keira.bash` is kerri's.
 
 This means I can be up and running with a new Mac by typing:
 
@@ -46,12 +60,11 @@ script to install image tools would look like this:
 
 
 
-
 ## User Configuration ##
 
 These are my config files so I can clone them onto a new machine easily.
 
-There is an install script (install.sh) and a configuration file (install.cfg)
+There is an install script (install.sh) and a configuration file (rob.cfg)
 which control how the various dotfiles will get copied or linked into the home
 directory.
 
@@ -79,18 +92,18 @@ for the help
 
          .bashrc:my_bashrc.bash:satur.*:Linux|Darwin
 
-	   will link/copy source_dir/my_bashrc.bash to dest_dir/.bashrc if the
-	   hostname begins with satur (saturday, saturn etc..) and uname is either
-	   Darwin or Linux.  Patterns are passed to grep -E  an empty pattern will
-	   match any host/platform
+       will link/copy source_dir/my_bashrc.bash to dest_dir/.bashrc if the
+       hostname begins with satur (saturday, saturn etc..) and uname is either
+       Darwin or Linux.  Patterns are passed to grep -E  an empty pattern will
+       match any host/platform
 
-Edit the config file (install.cfg) or create a new one. Then see what will
+Edit the config file (rob.cfg) or create a new one. Then see what will
 happen
 
-     bash install.sh -nv install.cfg
+     bash install.sh -nv rob.cfg
 
 remove the 'n' to really run it.  Any files that get clobbered will be moved
-to $HOME/backups-yyyymmdd. In the default mode (link) you should be able to
+to `$HOME/backups-yyyymmdd`. In the default mode (link) you should be able to
 run it again and nothing will be touched.  In copy mode, the files will keep
 geting backed up
 
