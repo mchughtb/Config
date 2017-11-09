@@ -504,7 +504,6 @@
 						<key name="Task3" modified="2015-07-02 12:13:07" build="140707">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
-					<value name="GuiArgs" type="string" data="/dir &quot;c:\UBS\dev&quot;"/>
 					<value name="Cmd1" type="string" data="powershell"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
@@ -555,7 +554,6 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000003"/>
 					<value name="Cmd2" type="string" data="ssh delta@xldn0336nsk.ldn.swissbank.com -cur_console:ns1TVn  -cur_console:P:^&lt;Solarized^&gt;  -cur_console:t:pg336 -t 'sudo sh -c &quot;tail -f /data2/pg/data/pg_log/* &quot; ''"/>
-					<value name="Cmd3" type="string" data="bash.exe -c ls -1t /c/UBS/dev/pgdata/ | head -1 | xargs tail -f"/>
 				</key>
 						<key name="Task9" modified="2015-05-27 16:47:31" build="140707">
 					<value name="Name" type="string" data="{xldn0800nap}"/>
